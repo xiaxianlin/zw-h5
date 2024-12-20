@@ -5,8 +5,11 @@ const App = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const handleLoaded = () => setLoading(false);
-    window.addEventListener("load", handleLoaded);
+    const handleLoaded = () => {
+      console.log("load");
+      setLoading(false);
+    };
+    window.addEventListener("load", handleLoaded, false);
     return () => {
       window.removeEventListener("load", handleLoaded);
     };
@@ -22,7 +25,7 @@ const App = () => {
 
   return (
     <div className="container">
-      <img width="100%" src="./images/bg.jpg" />
+      <img width="100%" src="./images/bg.jpg"/>
     </div>
   );
 };

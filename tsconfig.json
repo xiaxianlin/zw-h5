@@ -17,7 +17,15 @@
     /* type checking */
     "strict": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+
+    /* path */
+    "baseUrl": "./",
+    "rootDir": "./",
+    "paths": {
+      "@shared/*": ["src/shared/*"],
+      "@apps/*": ["src/apps/*"]
+    }
   },
   "include": ["src"]
 }

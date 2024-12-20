@@ -23,6 +23,9 @@ importers:
       react-dom:
         specifier: ^18.0.0
         version: 18.3.1(react@18.3.1)
+      unstated-next:
+        specifier: ^1.1.0
+        version: 1.1.0
     devDependencies:
       '@rsbuild/core':
         specifier: ^1.1.8
@@ -624,6 +627,9 @@ packages:
     resolution: {integrity: sha512-gptHNQghINnc/vTGIk0SOFGFNXw7JVrlRUtConJRlvaw6DuX0wO5Jeko9sWrMBhh+PsYAZ7oXAiOnf/UKogyiw==}
     engines: {node: '>= 10.0.0'}
 
+  unstated-next@1.1.0:
+    resolution: {integrity: sha512-AAn47ZncPvgBGOvMcn8tSRxsrqwf2VdAPxLASTuLJvZt4rhKfDvUkmYZLGfclImSfTVMv7tF4ynaVxin0JjDCA==}
+
   varint@6.0.0:
     resolution: {integrity: sha512-cXEIW6cfr15lFv563k4GuVuW/fiwjknytD37jIOLSdSWuOI6WnO/oKwmP2FQTU2l01LP8/M5TSAJpzUaGe3uWg==}
 
@@ -1133,5 +1139,7 @@ snapshots:
   typescript@5.7.2: {}
 
   universalify@2.0.1: {}
+
+  unstated-next@1.1.0: {}
 
   varint@6.0.0: {}

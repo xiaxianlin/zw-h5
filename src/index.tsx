@@ -1,16 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
+import { DemoApp } from "@apps/demo";
 
 import "animate.css";
 import "./index.css";
 
-const rootEl = document.getElementById("root");
-if (rootEl) {
-  const root = ReactDOM.createRoot(rootEl);
-  root.render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  );
-}
+const root = document.getElementById("root")!;
+ReactDOM.createRoot(root).render(
+  <React.StrictMode>
+    <DemoApp />
+  </React.StrictMode>
+);

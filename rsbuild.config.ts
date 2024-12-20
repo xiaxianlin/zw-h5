@@ -7,4 +7,10 @@ export default defineConfig({
   html: {
     template: "./public/index.html",
   },
+  resolve: {
+    alias: {
+      "@shared": "./src/shared",
+      "@apps": "./src/apps",
+    },
+  },
 });
