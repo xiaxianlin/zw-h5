@@ -1,8 +1,7 @@
 import { Loading } from "@shared/components/Loading";
 import { useAppModel } from "@shared/models/AppModel";
-import { FC, ReactNode } from "react";
 
-export const AppLayout: FC<{ children: ReactNode }> = ({ children }) => {
+export function AppLayout({ children }: { children: React.ReactNode }) {
   const { loading } = useAppModel();
   if (loading) {
     return (
@@ -12,4 +11,4 @@ export const AppLayout: FC<{ children: ReactNode }> = ({ children }) => {
     );
   }
   return <div className="container">{children}</div>;
-};
+}

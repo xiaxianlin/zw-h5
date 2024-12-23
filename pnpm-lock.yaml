@@ -14,9 +14,6 @@ importers:
       add:
         specifier: ^2.0.6
         version: 2.0.6
-      animate.css:
-        specifier: ^4.1.1
-        version: 4.1.1
       react:
         specifier: ^18.0.0
         version: 18.3.1
@@ -209,9 +206,6 @@ packages:
 
   add@2.0.6:
     resolution: {integrity: sha512-j5QzrmsokwWWp6kUcJQySpbG+xfOBqqKnup3OIk1pz+kB/80SLorZ9V8zHFLO92Lcd+hbvq8bT+zOGoPkmBV0Q==}
-
-  animate.css@4.1.1:
-    resolution: {integrity: sha512-+mRmCTv6SbCmtYJCN4faJMNFVNN5EuCTTprDTAo7YzIGji2KADmakjVA3+8mVDkZ2Bf09vayB35lSQIex2+QaQ==}
 
   array-union@2.1.0:
     resolution: {integrity: sha512-HGyxoOTYUyCM6stUe6EJgnd4EoewAI7zMdfqO+kGjnlZmBDz/cR5pf8r/cR4Wq60sL/p0IkcjUEEPwS3GFrIyw==}
@@ -792,8 +786,6 @@ snapshots:
       csstype: 3.1.3
 
   add@2.0.6: {}
-
-  animate.css@4.1.1: {}
 
   array-union@2.1.0: {}
 

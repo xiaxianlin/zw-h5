@@ -9,16 +9,11 @@ const loadImage = (key: string, url: string): Promise<AssetMap> => {
 const loadBlobUrl = async (key: string, url: string): Promise<AssetBlobMap> => {
   try {
     const response = await fetch(url);
-
-    // 检查请求是否成功
     if (!response.ok) {
       throw new Error(`图片加载失败: ${response.statusText}`);
     }
-
     const blob = await response.blob();
-
     const blobUrl = URL.createObjectURL(blob);
-
     return { [key]: blobUrl };
   } catch (error) {
     console.error("转换失败:", error);
@@ -33,6 +28,7 @@ export const ImageLoader = {
   },
 
   async loadBlob(images: AssetUrlMap): Promise<AssetBlobMap> {
+    console.log(images);
     const res = await Promise.all(Object.keys(images).map((key) => loadBlobUrl(key, images[key])));
     return res.reduce((prev, curr) => ({ ...prev, ...curr }), {});
   },

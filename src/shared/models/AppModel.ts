@@ -2,10 +2,12 @@ import { ImageLoader } from "@shared/utils/image";
 import { useEffect, useState } from "react";
 import { createContainer } from "unstated-next";
 
-const useAppContainer = (params?: { mainAseets: AssetUrlMap; lazyAssets?: AssetUrlMap }) => {
+const useAppContainer = (params?: { width: number; mainAseets: AssetUrlMap; lazyAssets?: AssetUrlMap }) => {
   const [loaded, setLoaded] = useState(false);
   const [loading, setLoading] = useState(true);
   const [assets, setAssets] = useState<AssetBlobMap>({});
+
+  const ratio = window.screen.width / (params?.width || 750);
 
   useEffect(() => {
     const { mainAseets = {}, lazyAssets = {} } = params || {};
@@ -33,7 +35,7 @@ const useAppContainer = (params?: { mainAseets: AssetUrlMap; lazyAssets?: AssetU
     });
   }, []);
 
-  return { loaded, loading, assets };
+  return { ratio, loaded, loading, assets };
 };
 
 export const AppModel = createContainer(useAppContainer);
