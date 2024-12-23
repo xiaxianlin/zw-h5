@@ -12,10 +12,8 @@ const loadBlobUrl = async (key: string, url: string): Promise<AssetBlobMap> => {
     if (!response.ok) {
       throw new Error(`图片加载失败: ${response.statusText}`);
     }
-    console.log("success", url);
     const blob = await response.blob();
     const blobUrl = URL.createObjectURL(blob);
-    console.log("blob", blobUrl);
     return { [key]: blobUrl };
   } catch (error) {
     console.error("转换失败:", error);

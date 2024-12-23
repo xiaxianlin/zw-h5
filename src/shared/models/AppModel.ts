@@ -24,8 +24,6 @@ const useAppContainer = (params?: { width: number; mainAssets: AssetUrlMap; lazy
       setAssets(cache);
       setLoading(false);
       setLoaded(count === mainCount + lazyCount);
-
-      console.log("mainAssets", mainAssets);
     });
 
     if (!lazyCount) return;

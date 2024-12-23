@@ -16,7 +16,7 @@ export function DemoContent() {
 
 export function DemoApp() {
   return (
-    <AppModel.Provider initialState={{ width: 750, mainAssets: { bg: "./images/demo.jpg", cat: "./images/cat.png" } }}>
+    <AppModel.Provider initialState={{ width: 750, mainAssets: { cat: "./images/cat.png" } }}>
       <AppLayout>
         <DemoContent />
       </AppLayout>
