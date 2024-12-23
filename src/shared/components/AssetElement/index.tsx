@@ -1,5 +1,5 @@
-import { useAppModel } from "@shared/models/AppModel";
 import { useMemo } from "react";
+import { useAppModel } from "@shared/models/AppModel";
 import { SizedElement } from "../SizedElement";
 
 interface AssetElementProps extends ElementProps {
