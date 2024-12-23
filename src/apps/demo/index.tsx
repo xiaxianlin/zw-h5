@@ -7,7 +7,9 @@ export function DemoContent() {
   return (
     <div style={{ position: "relative", overflow: "hidden" }}>
       <AssetElement width={750} height={8004} assetKey="bg" />
-
+      <div className="absolute" style={{ zIndex: 10, top: 0, left: 50 }}>
+        下滑有动画
+      </div>
       <Box1 />
       <Cat />
     </div>
