@@ -5,7 +5,7 @@ import { Box1, Cat } from "./components";
 
 export function DemoContent() {
   return (
-    <div style={{ position: "relative" }}>
+    <div style={{ position: "relative", overflow: "hidden" }}>
       <AssetElement width={750} height={8004} assetKey="bg" />
 
       <Box1 />
