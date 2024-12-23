@@ -2,7 +2,7 @@ import { ImageLoader } from "@shared/utils/image";
 import { useEffect, useState } from "react";
 import { createContainer } from "unstated-next";
 
-const useAppContainer = (params?: { width: number; mainAseets: AssetUrlMap; lazyAssets?: AssetUrlMap }) => {
+const useAppContainer = (params?: { width: number; mainAssets: AssetUrlMap; lazyAssets?: AssetUrlMap }) => {
   const [loaded, setLoaded] = useState(false);
   const [loading, setLoading] = useState(true);
   const [assets, setAssets] = useState<AssetBlobMap>({});
@@ -10,20 +10,22 @@ const useAppContainer = (params?: { width: number; mainAseets: AssetUrlMap; lazy
   const ratio = window.screen.width / (params?.width || 750);
 
   useEffect(() => {
-    const { mainAseets = {}, lazyAssets = {} } = params || {};
-    const mainCount = Object.keys(mainAseets).length;
+    const { mainAssets = {}, lazyAssets = {} } = params || {};
+    const mainCount = Object.keys(mainAssets).length;
     const lazyCount = Object.keys(lazyAssets).length;
 
     if (!mainCount) return;
 
     let cache: AssetBlobMap = {};
     let count = 0;
-    ImageLoader.loadBlob(mainAseets).then((data) => {
+    ImageLoader.loadBlob(mainAssets).then((data) => {
       count += Object.keys(data).length;
       cache = { ...cache, ...data };
       setAssets(cache);
       setLoading(false);
       setLoaded(count === mainCount + lazyCount);
+
+      console.log("mainAssets", mainAssets);
     });
 
     if (!lazyCount) return;
