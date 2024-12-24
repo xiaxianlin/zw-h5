@@ -1,7 +1,7 @@
 import { AssetElement } from "@shared/components";
 import { AppLayout } from "@shared/layouts/AppLayout";
 import { AppModel } from "@shared/models/AppModel";
-import { Box1, Cat } from "./components";
+import { Box1, Cat, LightBox } from "./components";
 
 export function DemoContent() {
   return (
@@ -12,6 +12,7 @@ export function DemoContent() {
       </div>
       <Box1 />
       <Cat />
+      <LightBox />
     </div>
   );
 }

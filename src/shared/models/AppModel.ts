@@ -7,7 +7,10 @@ const useAppContainer = (params?: { width: number; mainAssets: AssetUrlMap; lazy
   const [loading, setLoading] = useState(true);
   const [assets, setAssets] = useState<AssetBlobMap>({});
 
+
   const ratio = window.screen.width / (params?.width || 750);
+
+  const transfer = (num: number) => num * ratio;
 
   useEffect(() => {
     const { mainAssets = {}, lazyAssets = {} } = params || {};
@@ -35,7 +38,7 @@ const useAppContainer = (params?: { width: number; mainAssets: AssetUrlMap; lazy
     });
   }, []);
 
-  return { ratio, loaded, loading, assets };
+  return { ratio, loaded, loading, assets ,transfer};
 };
 
 export const AppModel = createContainer(useAppContainer);
