@@ -22,13 +22,13 @@ const loadBlobUrl = async (key: string, url: string): Promise<AssetBlobMap> => {
 };
 
 export const ImageLoader = {
-  async load(images: AssetUrlMap): Promise<AssetMap> {
-    const res = await Promise.all(Object.keys(images).map((key) => loadImage(key, images[key])));
+  async load(path: string, images: AssetUrlMap): Promise<AssetMap> {
+    const res = await Promise.all(Object.keys(images).map((key) => loadImage(key, `${path}/${images[key]}`)));
     return res.reduce((prev, curr) => ({ ...prev, ...curr }), {});
   },
 
-  async loadBlob(images: AssetUrlMap): Promise<AssetBlobMap> {
-    const res = await Promise.all(Object.keys(images).map((key) => loadBlobUrl(key, images[key])));
+  async loadBlob(path: string, images: AssetUrlMap): Promise<AssetBlobMap> {
+    const res = await Promise.all(Object.keys(images).map((key) => loadBlobUrl(key, `${path}/${images[key]}`)));
     return res.reduce((prev, curr) => ({ ...prev, ...curr }), {});
   },
 };

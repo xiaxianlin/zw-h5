@@ -2,18 +2,31 @@ import { ImageLoader } from "@shared/utils/image";
 import { useEffect, useState } from "react";
 import { createContainer } from "unstated-next";
 
-const useAppContainer = (params?: { width: number; mainAssets: AssetUrlMap; lazyAssets?: AssetUrlMap }) => {
+const useAppContainer = (params?: {
+  width: number;
+  dir: string;
+  mainAssets: AssetUrlMap;
+  lazyAssets?: AssetUrlMap;
+}) => {
   const [loaded, setLoaded] = useState(false);
   const [loading, setLoading] = useState(true);
   const [assets, setAssets] = useState<AssetBlobMap>({});
 
-
   const ratio = window.screen.width / (params?.width || 750);
 
-  const transfer = (num: number) => num * ratio;
+  const toNum = (record: number) => {
+    return (record as number) * ratio;
+  };
+
+  const toRecord = (record: Record<string, number>) => {
+    return Object.keys(record).reduce(
+      (prev, key) => ({ ...prev, [key]: record[key] * ratio }),
+      {} as Record<string, number>
+    );
+  };
 
   useEffect(() => {
-    const { mainAssets = {}, lazyAssets = {} } = params || {};
+    const { mainAssets = {}, lazyAssets = {}, dir = "" } = params || {};
     const mainCount = Object.keys(mainAssets).length;
     const lazyCount = Object.keys(lazyAssets).length;
 
@@ -21,7 +34,7 @@ const useAppContainer = (params?: { width: number; mainAssets: AssetUrlMap; lazy
 
     let cache: AssetBlobMap = {};
     let count = 0;
-    ImageLoader.loadBlob(mainAssets).then((data) => {
+    ImageLoader.loadBlob(`/images/${dir}`, mainAssets).then((data) => {
       count += Object.keys(data).length;
       cache = { ...cache, ...data };
       setAssets(cache);
@@ -30,7 +43,7 @@ const useAppContainer = (params?: { width: number; mainAssets: AssetUrlMap; lazy
     });
 
     if (!lazyCount) return;
-    ImageLoader.loadBlob(lazyAssets).then((data) => {
+    ImageLoader.loadBlob(`/images/${dir}`, lazyAssets).then((data) => {
       cache = { ...cache, ...data };
       count += Object.keys(data).length;
       setAssets(cache);
@@ -38,7 +51,7 @@ const useAppContainer = (params?: { width: number; mainAssets: AssetUrlMap; lazy
     });
   }, []);
 
-  return { ratio, loaded, loading, assets ,transfer};
+  return { ratio, loaded, loading, assets, toNum, toRecord };
 };
 
 export const AppModel = createContainer(useAppContainer);

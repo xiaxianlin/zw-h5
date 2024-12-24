@@ -1,27 +1,28 @@
 import { useMemo } from "react";
 import { useAppModel } from "@shared/models/AppModel";
-import { SizedElement } from "../SizedElement";
 
 interface AssetElementProps extends ElementProps {
   width: number;
   height: number;
   assetKey: string;
+  className?: string;
 }
-export function AssetElement({ assetKey, ...props }: AssetElementProps) {
-  const { assets } = useAppModel();
+export function AssetElement({ width, height, assetKey, className, children }: AssetElementProps) {
+  const { assets, toNum } = useAppModel();
   const asset = useMemo(() => assets[assetKey], [assets, assetKey]);
 
   return (
-    <SizedElement {...props}>
-      <div
-        style={{
-          width: "100%",
-          height: "100%",
-          backgroundImage: `url(${asset})`,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-        }}
-      />
-    </SizedElement>
+    <div
+      className={className}
+      style={{
+        width: toNum(width),
+        height: toNum(height),
+        backgroundImage: `url(${asset})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      {children}
+    </div>
   );
 }
