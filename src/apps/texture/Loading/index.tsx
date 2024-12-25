@@ -13,6 +13,8 @@ import { useAppModel } from "@shared/models/AppModel";
 
 const images = [img1, img2, img3, img4, img5, img6];
 
+const duration = 750;
+
 export function Loading() {
   const { setLoading } = useAppModel();
   const [index, setIndex] = useState(0);
@@ -27,17 +29,17 @@ export function Loading() {
   });
 
   const transitions = useTransition(index, {
-    from: { opacity: 0, transform: "translateX(100%)" },
-    enter: { opacity: 1, transform: "translateX(0%)" },
-    leave: { opacity: 0, transform: "translateX(-100%)" },
-    config: { duration: 500 },
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
+    config: { duration: duration },
     loop: true,
   });
 
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 1000);
+    }, duration);
     return () => clearInterval(interval);
   }, []);
 
