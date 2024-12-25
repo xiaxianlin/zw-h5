@@ -13,8 +13,7 @@
     "@react-spring/web": "^9.7.5",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "unstated-next": "^1.1.0",
-    "vconsole": "^3.15.1"
+    "unstated-next": "^1.1.0"
   },
   "devDependencies": {
     "@rsbuild/core": "^1.1.8",
