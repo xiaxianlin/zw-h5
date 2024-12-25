@@ -1,3 +1,15 @@
+@keyframes flowingWater {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 .block {
   width: 750px;
   height: 1334px;
@@ -116,6 +128,7 @@
     height: 722px;
     background: url("./assets/house.png") no-repeat;
     background-size: cover;
+    z-index: 7;
   }
   .line {
     position: absolute;

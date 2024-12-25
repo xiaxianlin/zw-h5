@@ -31,7 +31,7 @@ export function Loading() {
         <CircleProgress
           size={200}
           stroke={12}
-          duration={2000}
+          duration={2500}
           center={
             <div className={styles.icon}>
               <animated.img
@@ -46,7 +46,7 @@ export function Loading() {
               />
             </div>
           }
-          onFinish={() => opacity.start(0, { onRest: () => setLoading(false) })}
+          onFinish={() => opacity.start(0, { config: { duration: 500 }, onRest: () => setLoading(false) })}
         />
       </div>
     </animated.div>
