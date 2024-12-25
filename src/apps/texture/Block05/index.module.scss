@@ -1,0 +1,47 @@
+.block {
+  position: relative;
+  width: 750px;
+  height: 1334px;
+  background: url("./assets/bg.png") no-repeat;
+  background-size: cover;
+
+  .title {
+    position: absolute;
+    left: 653px;
+    top: 232px;
+    width: 61px;
+    height: 541px;
+    background: url("./assets/title.png") no-repeat;
+    background-size: cover;
+  }
+
+  .example {
+    position: absolute;
+    left: 0px;
+    top: 116px;
+    width: 622px;
+    height: 753px;
+    background: url("./assets/example.png") no-repeat;
+    background-size: cover;
+  }
+
+  .demo {
+    position: absolute;
+    left: 321px;
+    top: 555px;
+    width: 194px;
+    height: 372px;
+    background: url("./assets/demo.png") no-repeat;
+    background-size: cover;
+  }
+
+  .intro {
+    position: absolute;
+    left: 86px;
+    top: 1000px;
+    width: 560px;
+    height: 248px;
+    background: url("./assets/intro.png") no-repeat;
+    background-size: cover;
+  }
+}

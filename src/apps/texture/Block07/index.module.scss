@@ -1,0 +1,17 @@
+.block {
+  position: relative;
+  width: 750px;
+  height: 625px;
+  background: url("./assets/bg.png") no-repeat;
+  background-size: cover;
+
+  .button {
+    position: absolute;
+    left: 101px;
+    top: 26px;
+    width: 549px;
+    height: 488px;
+    background: url("./assets/button.png") no-repeat;
+    background-size: cover;
+  }
+}

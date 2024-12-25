@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { createContainer } from "unstated-next";
 
 const useAppContainer = () => {
@@ -6,11 +6,7 @@ const useAppContainer = () => {
 
   const ratio = window.screen.width / 750;
 
-  useEffect(() => {
-    setLoading(false);
-  }, []);
-
-  return { ratio, loading };
+  return { ratio, loading, setLoading };
 };
 
 export const AppModel = createContainer(useAppContainer);
