@@ -1,0 +1,42 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .progress {
+    position: relative;
+    .circleProgress {
+      transform: rotate(-90deg); // 使进度从12点钟方向开始
+
+      .circleBackground {
+        fill: none;
+        stroke: rgba(138, 146, 117, 0.3);
+      }
+
+      .circleValue {
+        fill: none;
+        stroke: #8a9275;
+        transition: stroke-dashoffset 0.3s ease;
+      }
+    }
+
+    .center {
+      position: absolute;
+      inset: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .counter {
+    margin-top: 10px;
+    text-align: center;
+
+    font-family: Alimama ShuHeiTi;
+    font-size: 22px;
+    font-weight: bold;
+    color: #8a9275;
+  }
+}

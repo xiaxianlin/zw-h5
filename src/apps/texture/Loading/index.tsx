@@ -1,5 +1,7 @@
 import styles from "./index.module.scss";
-import { animated, useSpringValue, useTransition } from "@react-spring/web";
+import { animated, useSpring, useSpringValue } from "@react-spring/web";
+import { useAppModel } from "@shared/models/AppModel";
+import { CircleProgress } from "@shared/components";
 
 import img1 from "./assets/01.png?inline";
 import img2 from "./assets/02.png?inline";
@@ -7,64 +9,45 @@ import img3 from "./assets/03.png?inline";
 import img4 from "./assets/04.png?inline";
 import img5 from "./assets/05.png?inline";
 import img6 from "./assets/06.png?inline";
-import { useEffect, useState } from "react";
-import { useProgress } from "@shared/hooks";
-import { useAppModel } from "@shared/models/AppModel";
 
 const images = [img1, img2, img3, img4, img5, img6];
 
-const duration = 750;
-
 export function Loading() {
   const { setLoading } = useAppModel();
-  const [index, setIndex] = useState(0);
+
+  const index = Math.floor(Math.random() * 6) + 1;
 
   const opacity = useSpringValue(1);
-
-  const { progress, x } = useProgress(2000, {
-    onFinish: () => {
-      console.log("finished");
-      opacity.start(0, { onRest: () => setLoading(false) });
-    },
-  });
-
-  const transitions = useTransition(index, {
-    from: { opacity: 0 },
-    enter: { opacity: 1 },
-    leave: { opacity: 0 },
-    config: { duration: duration },
+  const ratateStyles = useSpring({
+    from: { rotateZ: 0 },
+    to: { rotateZ: 360 },
     loop: true,
+    config: { duration: 5000 },
   });
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, duration);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <animated.div className={styles.wrapper} style={{ opacity }}>
       <div className={styles.loading}>
-        <div className={styles.icon}>
-          {transitions((style, i) => (
-            <animated.img
-              src={images[i]}
-              alt=""
-              style={{
-                ...style,
-                position: "absolute",
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-              }}
-            />
-          ))}
-        </div>
-        <div className={styles.progress}>
-          <animated.div style={{ width: x.to((x) => `${x}%`) }} />
-        </div>
-        <div className={styles.num}>{progress}%</div>
+        <CircleProgress
+          size={200}
+          stroke={12}
+          duration={2000}
+          center={
+            <div className={styles.icon}>
+              <animated.img
+                src={images[index]}
+                alt=""
+                style={{
+                  ...ratateStyles,
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                }}
+              />
+            </div>
+          }
+          onFinish={() => opacity.start(0, { onRest: () => setLoading(false) })}
+        />
       </div>
     </animated.div>
   );

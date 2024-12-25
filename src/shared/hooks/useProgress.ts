@@ -8,7 +8,7 @@ export const useProgress = (
   }
 ) => {
   const [progress, setProgress] = useState(0);
-  const { x } = useSpring({ x: progress });
+  const { x } = useSpring({ from: { x: 0 }, to: { x: 100 }, config: { duration: duration - 300 } });
 
   useEffect(() => {
     const interval = setInterval(() => {

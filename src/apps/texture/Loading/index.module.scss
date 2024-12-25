@@ -2,7 +2,7 @@
   position: fixed;
   inset: 0;
   z-index: 100;
-  
+
   width: 100vw;
   height: 100vh;
   background: url("./assets/bg.png?inline") no-repeat;
@@ -20,28 +20,6 @@
       position: relative;
       width: 150px;
       height: 150px;
-    }
-    .progress {
-      width: 245px;
-      height: 12px;
-      background: rgba(138, 146, 117, 0.3);
-      border-radius: 6px;
-      margin-top: 40px;
-      overflow: hidden;
-      div {
-        background: #8a9275;
-        height: 100%;
-      }
-    }
-
-    .num {
-      margin-top: 10px;
-      text-align: center;
-
-      font-family: Alimama ShuHeiTi;
-      font-size: 22px;
-      font-weight: bold;
-      color: #8a9275;
     }
   }
 }
