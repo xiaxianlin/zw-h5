@@ -1,6 +1,6 @@
 import styles from "./index.module.scss";
 import { animated } from "@react-spring/web";
-import { useAppModel } from "@shared/models/AppModel";
+import { useAppModel } from "@apps/texture/model";
 import { sleep } from "@shared/utils";
 import {
   useFadeInThenBreath,

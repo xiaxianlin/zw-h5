@@ -1,14 +1,14 @@
 import styles from "./index.module.scss";
 import { animated, useSpring, useSpringValue } from "@react-spring/web";
-import { useAppModel } from "@shared/models/AppModel";
+import { useAppModel } from "@apps/texture/model";
 import { CircleProgress } from "@shared/components";
 
-import img1 from "./assets/01.png";
-import img2 from "./assets/02.png";
-import img3 from "./assets/03.png";
-import img4 from "./assets/04.png";
-import img5 from "./assets/05.png";
-import img6 from "./assets/06.png";
+import img1 from "./assets/01.png?inline";
+import img2 from "./assets/02.png?inline";
+import img3 from "./assets/03.png?inline";
+import img4 from "./assets/04.png?inline";
+import img5 from "./assets/05.png?inline";
+import img6 from "./assets/06.png?inline";
 
 const images = [img1, img2, img3, img4, img5, img6];
 

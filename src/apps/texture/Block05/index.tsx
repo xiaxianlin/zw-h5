@@ -8,7 +8,7 @@ import {
   useFadeInAndSlideY,
   useInViewOnce,
 } from "@shared/hooks";
-import { useAppModel } from "@shared/models/AppModel";
+import { useAppModel } from "@apps/texture/model";
 
 export function Block05() {
   const { ratio } = useAppModel();

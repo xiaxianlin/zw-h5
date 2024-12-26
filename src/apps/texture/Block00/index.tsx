@@ -1,4 +1,4 @@
-import { useAppModel } from "@shared/models/AppModel";
+import { useAppModel } from "@apps/texture/model";
 import styles from "./index.module.scss";
 import { animated, useSpringValue, useTrail } from "@react-spring/web";
 import { useEffect, useRef } from "react";

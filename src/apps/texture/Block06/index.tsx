@@ -1,6 +1,6 @@
 import { animated } from "@react-spring/web";
 import styles from "./index.module.scss";
-import { useAppModel } from "@shared/models/AppModel";
+import { useAppModel } from "@apps/texture/model";
 import { sleep } from "@shared/utils";
 import { useExpandDown, useFadeIn, useFadeInAndSlideX, useFadeInAndRotate, useInViewOnce } from "@shared/hooks";
 

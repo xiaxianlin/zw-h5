@@ -1,5 +1,5 @@
-import "./index.scss";
-import { AppModel, useAppModel } from "@shared/models/AppModel";
+import styles from "./index.module.scss";
+import { AppModel, useAppModel } from "@apps/texture/model";
 import { Block00 } from "./Block00";
 import { Block01 } from "./Block01";
 import { Block02 } from "./Block02";
@@ -13,12 +13,12 @@ import { Music } from "./Music";
 import { Modal } from "./Modal";
 
 function Content() {
-  const { loading, locked } = useAppModel();
+  const { loading } = useAppModel();
 
   return (
     <>
       {loading && <Loading />}
-      <div style={{ position: "relative", overflow: "hidden", height: locked ? "100vh" : "auto" }}>
+      <div className={styles.container}>
         <Block00 />
         <Block01 />
         <Block02 />
