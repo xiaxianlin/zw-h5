@@ -20,7 +20,12 @@ export const useFadeIn = (options?: Options) => {
 export const useFadeInAndBreath = (options?: Options) => {
   const { auto, ...config } = options || {};
   const api = useSpringRef();
-  const styles = useSpring({ ref: api, from: { opacity: 0, scale: 0.9 }, to: { opacity: 1, scale: 1 }, config });
+  const styles = useSpring({
+    ref: api,
+    from: { opacity: 0, scale: 0.9 },
+    to: { opacity: 1, scale: 1 },
+    config: { ...config, mass: 2, friction: 10, tension: 300 },
+  });
 
   useEffect(() => {
     auto && api.start();
@@ -35,7 +40,7 @@ export const useFadeInThenBreath = (options?: Options) => {
   const styles = useSpring({
     ref: api,
     from: { opacity: 0, scale: 1 },
-    to: [{ opacity: 1, scale: 1 }, { scale: 1.1 }, { scale: 1 }],
+    to: [{ opacity: 1, scale: 1 }, { scale: 1.06 }, { scale: 1.03 }, { scale: 1.08 }, { scale: 1 }],
     config,
   });
 
@@ -102,28 +107,31 @@ export const useFadeInAndRotate = (d: number, times = 1, options?: Options) => {
 
   const to = new Array(times)
     .fill(0)
-    .map(() => [
-      { opacity: 1, rotate: -d },
-      { opacity: 1, rotate: 0 },
-      { opacity: 1, rotate: d },
-      { opacity: 1, rotate: 0 },
-    ])
+    .map(() => [{ rotate: -d }, { rotate: 0 }, { rotate: d }, { rotate: 0 }])
     .flat();
+
+  const rotateApi = useSpringRef();
+  const rotateStlyes = useSpring({
+    ref: rotateApi,
+    from: { rotate: 0 },
+    to,
+    config: { mass: 2, friction: 20, tension: 200, duration: 200 },
+  });
 
   const api = useSpringRef();
   const styles = useSpring({
     ref: api,
-    from: { opacity: 0, rotate: 0 },
-    to,
+    from: { opacity: 0 },
+    to: { opacity: 1 },
     config: config,
-    onRest: () => {},
+    onRest: () => rotateApi.start(),
   });
 
   useEffect(() => {
     auto && api.start();
   }, [auto]);
 
-  return { styles, api };
+  return { styles: { ...styles, ...rotateStlyes }, api };
 };
 
 export const useFadeInThenBlink = (times: number, options?: Options) => {
