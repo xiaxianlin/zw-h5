@@ -4,6 +4,8 @@ import { Texture } from "@apps/texture";
 
 import "./index.css";
 
+
+
 const doc = document.documentElement;
 doc.style.fontSize = (doc.clientWidth / 750) * 100 + "px";
 

@@ -2,9 +2,10 @@ import { defineConfig } from "@rsbuild/core";
 import { pluginReact } from "@rsbuild/plugin-react";
 import { pluginSass } from "@rsbuild/plugin-sass";
 import { pluginRem } from "@rsbuild/plugin-rem";
+import { pluginSvgr } from "@rsbuild/plugin-svgr";
 
 export default defineConfig({
-  plugins: [pluginReact(), pluginSass(), pluginRem({ rootFontSize: 100, screenWidth: 750 })],
+  plugins: [pluginReact(), pluginSass(), pluginSvgr(), pluginRem({ rootFontSize: 100, screenWidth: 750 })],
   html: {
     template: "./public/index.html",
   },
@@ -14,16 +15,10 @@ export default defineConfig({
       "@apps": "./src/apps",
     },
   },
-  tools: {
-    cssLoader: {
-      url: {
-        filter: (url) => {
-          if (/images/.test(url)) {
-            return false;
-          }
-          return true;
-        },
-      },
+  performance: {
+    preload: {
+      type: "all-chunks",
+      include: [/.*\.png$/],
     },
   },
 });

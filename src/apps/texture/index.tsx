@@ -9,16 +9,16 @@ import { Block05 } from "./Block05";
 import { Block06 } from "./Block06";
 import { Block07 } from "./Block07";
 import { Loading } from "./Loading";
-import { useState } from "react";
+import { Music } from "./Music";
 
 function Content() {
-  const { loading } = useAppModel();
-  const [locked, setLocked] = useState(true);
+  const { loading, locked } = useAppModel();
+
   return (
     <>
       {loading && <Loading />}
       <div style={{ position: "relative", overflow: "hidden", height: locked ? "100vh" : "auto" }}>
-        <Block00 onComplete={() => setLocked(false)} />
+        <Block00 />
         <Block01 />
         <Block02 />
         <Block03 />
@@ -27,6 +27,7 @@ function Content() {
         <Block06 />
         <Block07 />
       </div>
+      <Music />
     </>
   );
 }
