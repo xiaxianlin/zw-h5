@@ -10,6 +10,7 @@ import { Block06 } from "./Block06";
 import { Block07 } from "./Block07";
 import { Loading } from "./Loading";
 import { Music } from "./Music";
+import { Modal } from "./Modal";
 
 function Content() {
   const { loading, locked } = useAppModel();
@@ -28,6 +29,7 @@ function Content() {
         <Block07 />
       </div>
       <Music />
+      <Modal />
     </>
   );
 }
