@@ -9,9 +9,9 @@
   },
   "dependencies": {
     "@react-spring/web": "^9.7.5",
-    "alloyfinger-typescript": "^0.1.19",
     "clsx": "^2.1.1",
     "dom-to-image": "^2.6.0",
+    "html2canvas": "^1.4.1",
     "qrcode.react": "^4.2.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",

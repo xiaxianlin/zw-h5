@@ -1,19 +1,18 @@
 import "swiper/css";
 import { QRCodeCanvas } from "qrcode.react";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { forwardRef, useEffect, useMemo, useRef, useState } from "react";
 import { INFO_CONTENTS, POSTER_CONTENTS, images } from "./constants";
 import { Swiper, SwiperSlide } from "swiper/react";
 import styles from "./index.module.scss";
 import clsx from "clsx";
 import { useAppModel } from "../model";
 import { animated, useSpring, useSpringRef } from "@react-spring/web";
-import AlloyFinger from "alloyfinger-typescript";
-import { downloadElement } from "@shared/utils/file";
 
 type Props = { index: number; created: boolean; onChange?: (index: number) => void; onCreate?: () => void };
 
 const Info = ({ index, created, onChange, onCreate }: Props) => {
   const info = useMemo(() => INFO_CONTENTS[index], [index]);
+
   return (
     <div className={clsx(styles.block, styles.info)} style={{ display: created ? "none" : "flex" }}>
       <div className={styles.bg}>
@@ -48,24 +47,11 @@ const Info = ({ index, created, onChange, onCreate }: Props) => {
   );
 };
 
-const Poster = ({ index, created }: Props) => {
+const Poster = forwardRef(({ index }: { index: number }, ref) => {
   const { ratio } = useAppModel();
   const poster = useMemo(() => POSTER_CONTENTS[index], [index]);
-  const elementRef = useRef<HTMLDivElement>(null);
-  const buttonRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    if (!buttonRef.current) return;
-
-    const alloyFingerInstance = new AlloyFinger(buttonRef.current, {
-      longTap: () => {
-        downloadElement(elementRef.current, "poster.png");
-      },
-    });
-    return () => alloyFingerInstance.destroy();
-  }, [created]);
-
   return (
-    <div ref={elementRef} className={clsx(styles.block, styles.poster)} style={{ opacity: created ? 1 : 0 }}>
+    <div ref={ref} className={clsx(styles.block, styles.poster)}>
       <div className={styles.bg}>
         <animated.img src="/resources/modal/bg.png" />
       </div>
@@ -85,11 +71,10 @@ const Poster = ({ index, created }: Props) => {
           <QRCodeCanvas value={window.location.href} size={72 * ratio} bgColor={"#ffffff"} fgColor={"#000000"} />
         </div>
         <div className={styles.scan}>扫码定制您的宋韵丝巾</div>
-        <div className={styles.mask} ref={buttonRef} />
       </div>
     </div>
   );
-};
+});
 
 export default function Modal() {
   const { visible } = useAppModel();
@@ -99,6 +84,8 @@ export default function Modal() {
   const api = useSpringRef();
   const springs = useSpring({ ref: api, opacity: 0, scale: 0 });
 
+  const domRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     visible && api.start({ opacity: 1, scale: 1 });
   }, [visible]);
@@ -107,7 +94,8 @@ export default function Modal() {
     <animated.div className={styles.wrapper} style={springs}>
       <div className={styles.body}>
         <Info index={index} created={created} onChange={setIndex} onCreate={() => setCreaded(true)} />
-        <Poster index={index} created={created} />
+        <Poster ref={domRef} index={index} />
+        <div className={styles.canvas}></div>
       </div>
     </animated.div>
   );

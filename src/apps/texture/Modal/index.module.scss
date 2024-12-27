@@ -120,6 +120,7 @@
 
 .poster {
   z-index: 100;
+  transform: translateX(1000%);
   .mask {
     position: absolute;
     inset: 0;
