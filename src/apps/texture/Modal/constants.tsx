@@ -83,9 +83,9 @@ export const INFO_CONTENTS = [
 ];
 
 export const POSTER_CONTENTS = [
-  { image: y01, text: "高洁" },
-  { image: y02, text: "纯净" },
-  { image: y03, text: "繁荣" },
+  { image: y01, text: ["高洁", "坚韧与内在的力量"] },
+  { image: y02, text: ["纯净", "智慧与涅槃重生"] },
+  { image: y03, text: ["繁荣", "富贵与生生不息"] },
   { image: y04, text: "四季流转" },
   { image: y05, text: "自由" },
   { image: y06, text: "流动" },

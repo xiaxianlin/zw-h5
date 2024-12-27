@@ -1,4 +1,4 @@
-.mask {
+.wrapper {
   position: fixed;
   inset: 0;
   z-index: 100;
@@ -11,14 +11,38 @@
   .body {
     width: 706px;
     height: 1208px;
-    background: url("./assets/bg.png") no-repeat;
-    background-size: 100% 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
+    position: relative;
+
+    & > div {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: url("./assets/bg.png") no-repeat;
+      background-size: 100% 100%;
+    }
+  }
+
+  .intro {
+    margin-top: 8px;
+    font-family: Source Han Serif CN;
+    font-size: 24px;
+    line-height: 42px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    font-variation-settings: "opsz" auto;
+    color: #3d3d3d;
+    p {
+      margin: 0;
+    }
   }
 
   .info {
+    position: absolute;
+    inset: 0;
+    z-index: 555;
     .tip {
       font-family: "Source Han Serif CN";
       font-size: 28px;
@@ -26,7 +50,7 @@
       letter-spacing: 0.1em;
       font-variation-settings: "opsz" auto;
       color: #3d3d3d;
-      margin-top: 120px;
+      margin-top: 100px;
     }
     .image {
       margin-top: 50px;
@@ -64,19 +88,7 @@
       font-variation-settings: "opsz" auto;
       color: #3d3d3d;
     }
-    .intro {
-      margin-top: 8px;
-      font-family: Source Han Serif CN;
-      font-size: 24px;
-      line-height: 42px;
-      text-align: center;
-      letter-spacing: 0.1em;
-      font-variation-settings: "opsz" auto;
-      color: #3d3d3d;
-      p {
-        margin: 0;
-      }
-    }
+
     .button {
       margin-top: 66px;
       width: 343px;
@@ -92,6 +104,65 @@
       letter-spacing: 0.1em;
       font-variation-settings: "opsz" auto;
       color: #ffffff;
+    }
+  }
+
+  .poster {
+    position: relative;
+    .mask {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+    }
+    .title {
+      margin-top: 100px;
+      font-family: Heiti SC;
+      font-size: 40px;
+      letter-spacing: 0.1em;
+      font-variation-settings: "opsz" auto;
+      color: #3d2f23;
+    }
+    .desc {
+      margin-top: 28px;
+      font-family: Heiti SC;
+      font-size: 26px;
+      letter-spacing: 0.1em;
+      font-variation-settings: "opsz" auto;
+      color: #3d2f23;
+    }
+    .image {
+      margin-top: 38px;
+      width: 512px;
+      height: 512px;
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .intro {
+      margin-top: 50px;
+    }
+    .qrcode {
+      margin-top: 20px;
+      width: 120px;
+      height: 120px;
+      background: #ffffff;
+      box-sizing: border-box;
+      border: 2px solid #d9dbd3;
+      border-radius: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .scan {
+      margin-top: 18px;
+      font-family: Source Han Serif CN;
+      font-size: 20px;
+      letter-spacing: 0.1em;
+      font-variation-settings: "opsz" auto;
+      color: #8b603a;
     }
   }
 }

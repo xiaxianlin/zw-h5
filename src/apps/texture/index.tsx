@@ -1,5 +1,5 @@
 import styles from "./index.module.scss";
-import { AppModel, useAppModel } from "@apps/texture/model";
+import { AppModel } from "@apps/texture/model";
 import { Block00 } from "./Block00";
 import { Block01 } from "./Block01";
 import { Block02 } from "./Block02";
@@ -12,12 +12,10 @@ import { Loading } from "./Loading";
 import { Music } from "./Music";
 import { Modal } from "./Modal";
 
-function Content() {
-  const { loading } = useAppModel();
-
+export function Texture() {
   return (
-    <>
-      {loading && <Loading />}
+    <AppModel.Provider>
+      <Loading />
       <div className={styles.container}>
         <Block00 />
         <Block01 />
@@ -30,14 +28,6 @@ function Content() {
       </div>
       <Music />
       <Modal />
-    </>
-  );
-}
-
-export function Texture() {
-  return (
-    <AppModel.Provider>
-      <Content />
     </AppModel.Provider>
   );
 }

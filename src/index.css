@@ -7,7 +7,6 @@ body {
   padding: 0;
   font-size: 14px;
   text-size-adjust: 100%;
-  transform: translate3d(0, 0, 0);
   user-select: none;
   perspective: 1000px;
   backface-visibility: hidden;

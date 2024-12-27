@@ -5,13 +5,14 @@
   "scripts": {
     "dev": "rsbuild dev",
     "build": "rsbuild build",
-    "preview": "rsbuild preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages-d build"
+    "preview": "rsbuild preview"
   },
   "dependencies": {
     "@react-spring/web": "^9.7.5",
+    "alloyfinger-typescript": "^0.1.19",
     "clsx": "^2.1.1",
+    "dom-to-image": "^2.6.0",
+    "qrcode.react": "^4.2.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "swiper": "^11.1.15",
@@ -23,6 +24,7 @@
     "@rsbuild/plugin-rem": "^1.0.2",
     "@rsbuild/plugin-sass": "^1.1.2",
     "@rsbuild/plugin-svgr": "^1.0.6",
+    "@types/dom-to-image": "^2.6.7",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "typescript": "^5.7.2"

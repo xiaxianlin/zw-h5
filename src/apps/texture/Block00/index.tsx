@@ -6,7 +6,7 @@ import { useEffect, useRef } from "react";
 const items = [styles.yang, styles.li, styles.de, styles.song, styles.yun];
 
 export function Block00() {
-  const { loading, setLocked } = useAppModel();
+  const { loading } = useAppModel();
 
   const counter = useRef(1);
   const wen = useSpringValue(0);
@@ -18,7 +18,7 @@ export function Block00() {
     counter.current++;
     if (counter.current === items.length - 2) {
       button.start(1, { config: { duration: 1000 } });
-      start.start(0, { onRest: () => setLocked(false), config: { duration: 1200 } });
+      start.start(0, { config: { duration: 1000 } });
     }
   };
 

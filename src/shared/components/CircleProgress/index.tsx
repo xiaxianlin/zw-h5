@@ -1,18 +1,17 @@
 import styles from "./index.module.scss";
-import { animated } from "@react-spring/web";
+import { animated, useSpringValue } from "@react-spring/web";
 import { useAppModel } from "@apps/texture/model";
-import { useProgress } from "@shared/hooks";
 
 export function CircleProgress({
   size,
   center,
   stroke,
-  duration,
+  progress,
   onFinish,
 }: {
   size: number;
   stroke: number;
-  duration: number;
+  progress: number;
   center?: React.ReactNode;
   onFinish?: () => void;
 }) {
@@ -22,7 +21,15 @@ export function CircleProgress({
   const circleRadius = (circleSize - circleStroke) / 2;
   const circleCircumference = 2 * Math.PI * circleRadius;
 
-  const { progress, x } = useProgress(duration, { onFinish });
+  const x = useSpringValue(0);
+  x.start(progress, {
+    config: { duration: 100, mass: 2, friction: 10, tension: 300 },
+    onRest: () => {
+      if (progress >= 100) {
+        onFinish?.();
+      }
+    },
+  });
 
   return (
     <div className={styles.wrapper}>
