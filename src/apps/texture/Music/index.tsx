@@ -1,37 +1,34 @@
 import styles from "./index.module.scss";
 // @ts-ignore
-import OpenIcon from "./assets/open.svg?react";
-// @ts-ignore
 import CloseIcon from "./assets/close.svg?react";
 import { animated, useSpringValue } from "@react-spring/web";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
 export default function Music() {
-  const [open, setOpen] = useState(false);
   const opacity = useSpringValue(0);
   const audioRef = useRef<HTMLAudioElement>(null);
-  const handleButton = () => {
-    if (!open) {
-      audioRef.current?.play();
-    } else {
-      audioRef.current?.pause();
+  const handleButton = async () => {
+    if (audioRef.current) {
+      audioRef.current.volume = 0.5;
+      audioRef.current.muted = false;
+      audioRef.current.play();
     }
-    setOpen(!open);
+    opacity.start(0);
   };
   return (
     <>
       <animated.div className={styles.button} style={{ opacity }} onClick={handleButton}>
-        {open ? <OpenIcon /> : <CloseIcon />}
+        <CloseIcon />
       </animated.div>
       <audio
         loop
+        muted
+        playsInline
+        preload="auto"
         ref={audioRef}
-        style={{ display: "none" }}
         src="/assets/bg.mp3"
-        onCanPlay={() => {
-          audioRef.current && (audioRef.current.volume = 0.5);
-          opacity.start(1);
-        }}
+        onCanPlay={() => opacity.start(1)}
+        style={{ position: "fixed", zIndex: 0, opacity: 0 }}
       />
     </>
   );
