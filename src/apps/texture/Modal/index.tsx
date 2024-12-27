@@ -18,7 +18,7 @@ type Props = {
   onCreate?: () => void;
 };
 
-const Info = ({ index, created, onChange, onCreate }: Props) => {
+const Info = ({ index, created, loading, onChange, onCreate }: Props) => {
   const info = useMemo(() => INFO_CONTENTS[index], [index]);
   const spring = useBreath({ auto: true, duration: 600 });
   return (
@@ -51,6 +51,12 @@ const Info = ({ index, created, onChange, onCreate }: Props) => {
           立即生成丝巾
         </div>
       </div>
+      {loading && (
+        <div className={styles.loaderWrapper}>
+          <div className={styles.loader} />
+          <p>海报生成中...</p>
+        </div>
+      )}
     </div>
   );
 };
