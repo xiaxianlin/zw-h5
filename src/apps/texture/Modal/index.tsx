@@ -7,12 +7,20 @@ import styles from "./index.module.scss";
 import clsx from "clsx";
 import { useAppModel } from "../model";
 import { animated, useSpring, useSpringRef } from "@react-spring/web";
+import { useBreath } from "@shared/hooks";
+import html2canvas from "html2canvas";
 
-type Props = { index: number; created: boolean; onChange?: (index: number) => void; onCreate?: () => void };
+type Props = {
+  index: number;
+  created: boolean;
+  loading: boolean;
+  onChange?: (index: number) => void;
+  onCreate?: () => void;
+};
 
 const Info = ({ index, created, onChange, onCreate }: Props) => {
   const info = useMemo(() => INFO_CONTENTS[index], [index]);
-
+  const spring = useBreath({ auto: true, duration: 600 });
   return (
     <div className={clsx(styles.block, styles.info)} style={{ display: created ? "none" : "flex" }}>
       <div className={styles.bg}>
@@ -23,7 +31,7 @@ const Info = ({ index, created, onChange, onCreate }: Props) => {
         <Swiper className={styles.image} onSlideChange={(swiper) => onChange?.(swiper.activeIndex)}>
           {images.map((i) => (
             <SwiperSlide key={i}>
-              <img src={`/resources/modal/x0${i}.png`} alt="" />
+              <animated.img src={`/resources/modal/x0${i}.png`} style={spring.styles} />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -47,7 +55,7 @@ const Info = ({ index, created, onChange, onCreate }: Props) => {
   );
 };
 
-const Poster = forwardRef(({ index }: { index: number }, ref) => {
+const Poster = forwardRef(({ index }: { index: number }, ref: any) => {
   const { ratio } = useAppModel();
   const poster = useMemo(() => POSTER_CONTENTS[index], [index]);
   return (
@@ -80,11 +88,22 @@ export default function Modal() {
   const { visible } = useAppModel();
   const [index, setIndex] = useState(0);
   const [created, setCreaded] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [url, setUrl] = useState("");
 
   const api = useSpringRef();
   const springs = useSpring({ ref: api, opacity: 0, scale: 0 });
 
   const domRef = useRef<HTMLDivElement>(null);
+
+  const handleCreate = () => {
+    setLoading(true);
+    html2canvas(domRef.current!).then((canvas) => {
+      setUrl(canvas.toDataURL("image/png"));
+      setCreaded(true);
+      setLoading(false);
+    });
+  };
 
   useEffect(() => {
     visible && api.start({ opacity: 1, scale: 1 });
@@ -93,9 +112,9 @@ export default function Modal() {
   return (
     <animated.div className={styles.wrapper} style={springs}>
       <div className={styles.body}>
-        <Info index={index} created={created} onChange={setIndex} onCreate={() => setCreaded(true)} />
+        <Info index={index} created={created} loading={loading} onChange={setIndex} onCreate={handleCreate} />
         <Poster ref={domRef} index={index} />
-        <div className={styles.canvas}></div>
+        <div className={clsx(styles.block, styles.canvas)}>{url && <animated.img src={url} />}</div>
       </div>
     </animated.div>
   );

@@ -41,3 +41,22 @@ export const useExpandDown = (h: number, options?: AnmiateOptions) => {
 
   return { styles, api };
 };
+
+export const useBreath = (options?: AnmiateOptions) => {
+  const { auto, times, onFinish, ...config } = options || {};
+  const api = useSpringRef();
+  const styles = useSpring({
+    ref: api,
+    from: { scale: 0.95 },
+    to: [{ scale: 1 }, { scale: 0.95 }],
+    config,
+    ...(times ? { repeat: times } : { loop: true }),
+    onRest: onFinish,
+  });
+
+  useEffect(() => {
+    auto && api.start();
+  }, [auto]);
+
+  return { styles, api };
+};

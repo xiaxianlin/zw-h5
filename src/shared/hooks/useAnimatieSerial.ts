@@ -8,21 +8,8 @@ export const useFadeInThenBreath = (options?: AnmiateOptions) => {
   const nextStyles = useSpring({
     ref: nextApi,
     from: { scale: 1 },
-    to: async (next) => {
-      const run = async () => {
-        await next({ scale: 1.05 });
-        await next({ scale: 1 });
-      };
-      if (times) {
-        for (let i = 0; i < times; i++) {
-          await run();
-        }
-      } else {
-        while (true) {
-          await run();
-        }
-      }
-    },
+    to: [{ scale: 1.05 }, { scale: 1 }],
+    ...(times ? { repeat: times } : { loop: true }),
     config: { duration: 500 },
   });
 
@@ -49,23 +36,8 @@ export const useFadeInThenRotate = (d: number, options?: AnmiateOptions) => {
   const nextStyles = useSpring({
     ref: nextApi,
     from: { rotate: 0 },
-    to: async (next) => {
-      const run = async () => {
-        await next({ rotate: -d });
-        await next({ rotate: 0 });
-        await next({ rotate: d });
-        await next({ rotate: 0 });
-      };
-      if (times) {
-        for (let i = 0; i < times; i++) {
-          await run();
-        }
-      } else {
-        while (true) {
-          await run();
-        }
-      }
-    },
+    to: [{ rotate: -d }, { rotate: 0 }, { rotate: d }, { rotate: 0 }],
+    ...(times ? { repeat: times } : { loop: true }),
     config: { duration: 300 },
   });
 
@@ -92,23 +64,8 @@ export const useFadeInThenMoveY = (d: number, options?: AnmiateOptions) => {
   const nextStyles = useSpring({
     ref: nextApi,
     from: { translateY: 0 },
-    to: async (next) => {
-      const run = async () => {
-        await next({ translateY: -d });
-        await next({ translateY: 0 });
-        await next({ translateY: d });
-        await next({ translateY: 0 });
-      };
-      if (times) {
-        for (let i = 0; i < times; i++) {
-          await run();
-        }
-      } else {
-        while (true) {
-          await run();
-        }
-      }
-    },
+    to: [{ translateY: -d }, { translateY: 0 }, { translateY: d }, { translateY: 0 }],
+    ...(times ? { repeat: times } : { loop: true }),
     config: { duration: 300 },
   });
 
@@ -135,21 +92,8 @@ export const useFadeInThenBlink = (options?: AnmiateOptions) => {
   const nextStyles = useSpring({
     ref: nextApi,
     from: { filter: "brightness(100%)" },
-    to: async (next) => {
-      const run = async () => {
-        await next({ filter: "brightness(105%)" });
-        await next({ filter: "brightness(100%)" });
-      };
-      if (times) {
-        for (let i = 0; i < times; i++) {
-          await run();
-        }
-      } else {
-        while (true) {
-          await run();
-        }
-      }
-    },
+    to: [{ filter: "brightness(105%)" }, { filter: "brightness(100%)" }],
+    ...(times ? { repeat: times } : { loop: true }),
     config: { mass: 2 },
   });
 
