@@ -1,18 +1,4 @@
-import x01 from "./assets/x01.png";
-import x02 from "./assets/x02.png";
-import x03 from "./assets/x03.png";
-import x04 from "./assets/x04.png";
-import x05 from "./assets/x05.png";
-import x06 from "./assets/x06.png";
-
-import y01 from "./assets/y01.png";
-import y02 from "./assets/y02.png";
-import y03 from "./assets/y03.png";
-import y04 from "./assets/y04.png";
-import y05 from "./assets/y05.png";
-import y06 from "./assets/y06.png";
-
-export const images = [x01, x02, x03, x04, x05, x06];
+export const images = [1, 2, 3, 4, 5, 6];
 export const INFO_CONTENTS = [
   {
     title: "兰花纹",
@@ -83,10 +69,10 @@ export const INFO_CONTENTS = [
 ];
 
 export const POSTER_CONTENTS = [
-  { image: y01, text: ["高洁", "坚韧与内在的力量"] },
-  { image: y02, text: ["纯净", "智慧与涅槃重生"] },
-  { image: y03, text: ["繁荣", "富贵与生生不息"] },
-  { image: y04, text: "四季流转" },
-  { image: y05, text: "自由" },
-  { image: y06, text: "流动" },
+  { text: ["高洁", "坚韧与内在的力量"] },
+  { text: ["纯净", "智慧与涅槃重生"] },
+  { text: ["繁荣", "富贵与生生不息"] },
+  { text: ["四季流转"] },
+  { text: ["自由"] },
+  { text: ["流动"] },
 ];

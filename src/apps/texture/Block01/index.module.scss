@@ -1,48 +1,28 @@
-.block {
-  position: relative;
-  width: 750px;
-  height: 1334px;
-  background: url("./assets/bg.png") no-repeat;
-  background-size: cover;
+.title {
+  left: 637px;
+  top: 162px;
+  width: 57px;
+  height: 600px;
+}
 
-  .title {
-    position: absolute;
-    left: 637px;
-    top: 162px;
-    width: 57px;
-    height: 600px;
-    background: url("./assets/title.png") no-repeat;
-    background-size: cover;
-  }
+.example {
+  left: 0px;
+  top: 74px;
+  width: 574px;
+  height: 750px;
+  transform-origin: left center;
+}
 
-  .example {
-    position: absolute;
-    left: 0px;
-    top: 74px;
-    width: 574px;
-    height: 750px;
-    background: url("./assets/example.png") no-repeat;
-    background-size: cover;
-    transform-origin: left center;
-  }
+.demo {
+  left: 288px;
+  top: 571px;
+  width: 289px;
+  height: 459px;
+}
 
-  .demo {
-    position: absolute;
-    left: 288px;
-    top: 571px;
-    width: 289px;
-    height: 459px;
-    background: url("./assets/demo.png") no-repeat;
-    background-size: cover;
-  }
-
-  .intro {
-    position: absolute;
-    left: 44px;
-    top: 970px;
-    width: 515px;
-    height: 323px;
-    background: url("./assets/intro.png") no-repeat;
-    background-size: cover;
-  }
+.intro {
+  left: 44px;
+  top: 970px;
+  width: 515px;
+  height: 323px;
 }

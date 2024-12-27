@@ -28,11 +28,16 @@ export function Block05() {
   });
 
   return (
-    <animated.div ref={ref} className={styles.block}>
-      <animated.div className={styles.title} style={title.styles} />
-      <animated.div className={styles.example} style={example.styles} />
-      <animated.div className={styles.demo} style={demo.styles} />
-      <animated.div className={styles.intro} style={intro.styles} />
-    </animated.div>
+    <div ref={ref} className="block">
+      <div className="bg">
+        <animated.img src="/resources/block05/bg.png" />
+      </div>
+      <div className="content info-content">
+        <animated.img className={styles.title} style={title.styles} src="/resources/block05/title.png" />
+        <animated.img className={styles.example} style={example.styles} src="/resources/block05/example.png" />
+        <animated.img className={styles.demo} style={demo.styles} src="/resources/block05/demo.png" />
+        <animated.img className={styles.intro} style={intro.styles} src="/resources/block05/intro.png" />
+      </div>
+    </div>
   );
 }

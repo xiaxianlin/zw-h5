@@ -6,7 +6,7 @@ import CloseIcon from "./assets/close.svg?react";
 import { animated, useSpringValue } from "@react-spring/web";
 import { useRef, useState } from "react";
 
-export function Music() {
+export default function Music() {
   const [open, setOpen] = useState(false);
   const opacity = useSpringValue(0);
   const audioRef = useRef<HTMLAudioElement>(null);

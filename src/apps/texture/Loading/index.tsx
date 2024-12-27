@@ -2,22 +2,14 @@ import styles from "./index.module.scss";
 import { animated, useSpring } from "@react-spring/web";
 import { CircleProgress } from "@shared/components";
 
-import img1 from "./assets/01.png";
-import img2 from "./assets/02.png";
-import img3 from "./assets/03.png";
-import img4 from "./assets/04.png";
-import img5 from "./assets/05.png";
-import img6 from "./assets/06.png";
-import { useEffect, useState } from "react";
+import img3 from "./assets/03.png?inline";
 import { useFadeOut } from "@shared/hooks";
-
-const total = 32;
-const images = [img1, img2, img3, img4, img5, img6];
-const index = Math.floor(Math.random() * 6) + 1;
+import { useAppModel } from "../model";
+import { useState } from "react";
 
 export function Loading() {
   const [visible, setVisible] = useState(true);
-  const [count, setCount] = useState(0);
+  const { total, count } = useAppModel();
 
   const progress = Math.floor((count * 100) / total);
 
@@ -30,13 +22,9 @@ export function Loading() {
     config: { duration: 5000 },
   });
 
-  useEffect(() => {
-    const observer = new PerformanceObserver((list) => {
-      const entries = list.getEntries();
-      entries.forEach(() => setCount((c) => c + 1));
-    });
-    observer.observe({ entryTypes: ["resource"] });
-  }, []);
+  if (total === count) {
+    loading.api.start();
+  }
 
   if (!visible) {
     return null;
@@ -53,7 +41,7 @@ export function Loading() {
           center={
             <div className={styles.icon}>
               <animated.img
-                src={images[index]}
+                src={img3}
                 alt=""
                 style={{
                   ...ratateStyles,

@@ -9,160 +9,169 @@
   background-color: rgba($color: #fff, $alpha: 0.8);
 
   .body {
+    position: relative;
     width: 706px;
     height: 1208px;
+  }
+}
 
-    position: relative;
+.block {
+  position: absolute;
+  inset: 0;
 
-    & > div {
+  .bg {
+    position: absolute;
+    inset: 0;
+    img {
       width: 100%;
       height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background: url("./assets/bg.png") no-repeat;
-      background-size: 100% 100%;
+      object-fit: cover;
     }
   }
+  .content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
 
-  .intro {
-    margin-top: 8px;
-    font-family: Source Han Serif CN;
-    font-size: 24px;
+.intro {
+  margin-top: 8px;
+  font-family: Source Han Serif CN;
+  font-size: 24px;
+  line-height: 42px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  font-variation-settings: "opsz" auto;
+  color: #3d3d3d;
+  p {
+    margin: 0;
+  }
+}
+
+.info {
+  z-index: 110;
+  .tip {
+    font-family: "Source Han Serif CN";
+    font-size: 28px;
     line-height: 42px;
-    text-align: center;
     letter-spacing: 0.1em;
     font-variation-settings: "opsz" auto;
     color: #3d3d3d;
-    p {
-      margin: 0;
+    margin-top: 100px;
+  }
+
+  .image {
+    margin-top: 50px;
+    width: 500px;
+    height: 500px;
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 
-  .info {
+  .pager {
+    margin-top: 18px;
+    display: flex;
+    gap: 8px;
+    .item {
+      width: 20px;
+      height: 20px;
+      background: #b1a295;
+      border-radius: 10px;
+      &.active {
+        background: #4d2914;
+      }
+    }
+  }
+
+  .title {
+    margin-top: 34px;
+    font-family: "Source Han Serif CN";
+    font-size: 46px;
+    text-align: center;
+    letter-spacing: 0.12em;
+    font-variation-settings: "opsz" auto;
+    color: #3d3d3d;
+  }
+
+  .button {
+    margin-top: 66px;
+    width: 343px;
+    height: 70px;
+    border-radius: 35px;
+    background: rgba(185, 113, 71, 0.83);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: "Heiti SC";
+    font-size: 28px;
+    letter-spacing: 0.1em;
+    font-variation-settings: "opsz" auto;
+    color: #ffffff;
+  }
+}
+
+.poster {
+  z-index: 100;
+  .mask {
     position: absolute;
     inset: 0;
-    z-index: 555;
-    .tip {
-      font-family: "Source Han Serif CN";
-      font-size: 28px;
-      line-height: 42px;
-      letter-spacing: 0.1em;
-      font-variation-settings: "opsz" auto;
-      color: #3d3d3d;
-      margin-top: 100px;
-    }
-    .image {
-      margin-top: 50px;
-      width: 500px;
-      height: 500px;
-      img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    }
-
-    .pager {
-      margin-top: 18px;
-      display: flex;
-      gap: 8px;
-      .item {
-        width: 20px;
-        height: 20px;
-        background: #b1a295;
-        border-radius: 10px;
-        &.active {
-          background: #4d2914;
-        }
-      }
-    }
-
-    .title {
-      margin-top: 34px;
-      font-family: "Source Han Serif CN";
-      font-size: 46px;
-      text-align: center;
-      letter-spacing: 0.12em;
-      font-variation-settings: "opsz" auto;
-      color: #3d3d3d;
-    }
-
-    .button {
-      margin-top: 66px;
-      width: 343px;
-      height: 70px;
-      border-radius: 35px;
-      background: rgba(185, 113, 71, 0.83);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      font-family: "Heiti SC";
-      font-size: 28px;
-      letter-spacing: 0.1em;
-      font-variation-settings: "opsz" auto;
-      color: #ffffff;
+    opacity: 0;
+  }
+  .title {
+    margin-top: 100px;
+    font-family: Heiti SC;
+    font-size: 40px;
+    letter-spacing: 0.1em;
+    font-variation-settings: "opsz" auto;
+    color: #3d2f23;
+  }
+  .desc {
+    margin-top: 28px;
+    font-family: Heiti SC;
+    font-size: 26px;
+    letter-spacing: 0.1em;
+    font-variation-settings: "opsz" auto;
+    color: #3d2f23;
+  }
+  .image {
+    margin-top: 38px;
+    width: 512px;
+    height: 512px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
-
-  .poster {
-    position: relative;
-    .mask {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-    }
-    .title {
-      margin-top: 100px;
-      font-family: Heiti SC;
-      font-size: 40px;
-      letter-spacing: 0.1em;
-      font-variation-settings: "opsz" auto;
-      color: #3d2f23;
-    }
-    .desc {
-      margin-top: 28px;
-      font-family: Heiti SC;
-      font-size: 26px;
-      letter-spacing: 0.1em;
-      font-variation-settings: "opsz" auto;
-      color: #3d2f23;
-    }
-    .image {
-      margin-top: 38px;
-      width: 512px;
-      height: 512px;
-      img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    }
-    .intro {
-      margin-top: 50px;
-    }
-    .qrcode {
-      margin-top: 20px;
-      width: 120px;
-      height: 120px;
-      background: #ffffff;
-      box-sizing: border-box;
-      border: 2px solid #d9dbd3;
-      border-radius: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .scan {
-      margin-top: 18px;
-      font-family: Source Han Serif CN;
-      font-size: 20px;
-      letter-spacing: 0.1em;
-      font-variation-settings: "opsz" auto;
-      color: #8b603a;
-    }
+  .intro {
+    margin-top: 50px;
+  }
+  .qrcode {
+    margin-top: 20px;
+    width: 120px;
+    height: 120px;
+    background: #ffffff;
+    box-sizing: border-box;
+    border: 2px solid #d9dbd3;
+    border-radius: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .scan {
+    margin-top: 18px;
+    font-family: Source Han Serif CN;
+    font-size: 20px;
+    letter-spacing: 0.1em;
+    font-variation-settings: "opsz" auto;
+    color: #8b603a;
   }
 }

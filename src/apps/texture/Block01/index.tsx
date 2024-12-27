@@ -21,7 +21,7 @@ export function Block01() {
   const [ref] = useInViewOnce(0.5, async () => {
     example.api.start();
     await sleep(1500);
-    console.log('demo')
+    console.log("demo");
     demo.api.start();
     await sleep(800);
     title.api.start();
@@ -30,11 +30,16 @@ export function Block01() {
   });
 
   return (
-    <animated.div ref={ref} className={styles.block}>
-      <animated.div className={styles.title} style={title.styles} />
-      <animated.div className={styles.example} style={example.styles} />
-      <animated.div className={styles.demo} style={demo.styles} />
-      <animated.div className={styles.intro} style={intro.styles} />
-    </animated.div>
+    <div ref={ref} className="block">
+      <div className="bg">
+        <animated.img src="/resources/block01/bg.png" />
+      </div>
+      <div className="content info-content">
+        <animated.img className={styles.title} style={title.styles} src="/resources/block01/title.png" />
+        <animated.img className={styles.example} style={example.styles} src="/resources/block01/example.png" />
+        <animated.img className={styles.demo} style={demo.styles} src="/resources/block01/demo.png" />
+        <animated.img className={styles.intro} style={intro.styles} src="/resources/block01/intro.png" />
+      </div>
+    </div>
   );
 }

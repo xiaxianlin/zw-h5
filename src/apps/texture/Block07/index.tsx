@@ -10,8 +10,18 @@ export function Block07() {
     button.api.start();
   });
   return (
-    <animated.div ref={ref} className={styles.block}>
-      <animated.div className={styles.button} style={button.styles} onClick={() => setVisible(true)} />
-    </animated.div>
+    <div ref={ref} className="block bottom-block">
+      <div className="bg">
+        <animated.img src="/resources/block07/bg.png" />
+      </div>
+      <div className="content info-content">
+        <animated.img
+          src="/resources/block07/button.png"
+          className={styles.button}
+          style={button.styles}
+          onClick={() => setVisible(true)}
+        />
+      </div>
+    </div>
   );
 }

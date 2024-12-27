@@ -1,144 +1,102 @@
-@keyframes flowingWater {
-  0% {
-    background-position: 0% 50%;
+.words {
+  position: absolute;
+  left: 309px;
+  top: 161px;
+  width: 137px;
+  height: 526px;
+  z-index: 10;
+
+  .wen {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 137px;
+    height: 131px;
   }
-  50% {
-    background-position: 100% 50%;
+
+  .yang {
+    position: absolute;
+    left: 37px;
+    top: 170px;
+    width: 58px;
+    height: 58px;
   }
-  100% {
-    background-position: 0% 50%;
+
+  .li {
+    position: absolute;
+    left: 36px;
+    top: 243px;
+    width: 58px;
+    height: 58px;
+  }
+  .de {
+    position: absolute;
+    left: 36px;
+    top: 321px;
+    width: 58px;
+    height: 58px;
+  }
+  .song {
+    position: absolute;
+    left: 36px;
+    top: 392px;
+    width: 58px;
+    height: 58px;
+  }
+  .yun {
+    position: absolute;
+    left: 37px;
+    top: 468px;
+    width: 58px;
+    height: 58px;
   }
 }
 
-.block {
-  width: 750px;
-  height: 1334px;
-  background: url("./assets/bg.png") no-repeat;
-  background-size: cover;
-  position: relative;
-  
+.bird {
+  position: absolute;
+  left: 72px;
+  top: 603px;
+  width: 117px;
+  height: 52px;
+  z-index: 9;
+}
 
-  .words {
+.button {
+  position: absolute;
+  left: 266px;
+  top: 781px;
+  width: 221px;
+  height: 202px;
+  z-index: 11;
+  .icon {
     position: absolute;
-    left: 309px;
-    top: 161px;
-    width: 137px;
-    height: 526px;
-    z-index: 10;
-
-    .wen {
-      position: absolute;
-      left: 0px;
-      top: 0px;
-      width: 137px;
-      height: 131px;
-      background: url("./assets/wen.png") no-repeat;
-      background-size: cover;
-    }
-
-    .yang {
-      position: absolute;
-      left: 37px;
-      top: 170px;
-      width: 58px;
-      height: 58px;
-      background: url("./assets/yang.png") no-repeat;
-      background-size: cover;
-    }
-
-    .li {
-      position: absolute;
-      left: 36px;
-      top: 243px;
-      width: 58px;
-      height: 58px;
-      background: url("./assets/li.png") no-repeat;
-      background-size: cover;
-    }
-    .de {
-      position: absolute;
-      left: 36px;
-      top: 321px;
-      width: 58px;
-      height: 58px;
-      background: url("./assets/de.png") no-repeat;
-      background-size: cover;
-    }
-    .song {
-      position: absolute;
-      left: 36px;
-      top: 392px;
-      width: 58px;
-      height: 58px;
-      background: url("./assets/song.png") no-repeat;
-      background-size: cover;
-    }
-    .yun {
-      position: absolute;
-      left: 37px;
-      top: 468px;
-      width: 58px;
-      height: 58px;
-      background: url("./assets/yun.png") no-repeat;
-      background-size: cover;
-    }
+    left: 36px;
+    top: 0px;
+    width: 145px;
+    height: 145px;
   }
-
-  .bird {
+  .start {
     position: absolute;
-    left: 72px;
-    top: 603px;
-    width: 117px;
-    height: 52px;
-    background: url("./assets/bird.png") no-repeat;
-    background-size: cover;
-    z-index: 9;
-  }
-
-  .button {
-    position: absolute;
-    left: 266px;
-    top: 781px;
+    left: 0px;
+    top: 173px;
     width: 221px;
-    height: 202px;
-    z-index: 11;
-    .icon {
-      position: absolute;
-      left: 36px;
-      top: 0px;
-      width: 145px;
-      height: 145px;
-      background: url("./assets/button.png") no-repeat;
-      background-size: cover;
-    }
-    .start {
-      position: absolute;
-      left: 0px;
-      top: 173px;
-      width: 221px;
-      height: 29px;
-      background: url("./assets/start.png") no-repeat;
-      background-size: cover;
-    }
+    height: 29px;
   }
-  .house {
-    position: absolute;
-    left: 0px;
-    top: 610px;
-    width: 750px;
-    height: 722px;
-    background: url("./assets/house.png") no-repeat;
-    background-size: cover;
-    z-index: 7;
-  }
-  .line {
-    position: absolute;
-    left: 0px;
-    top: 176px;
-    width: 750px;
-    height: 919px;
-    background: url("./assets/line.png") no-repeat;
-    background-size: cover;
-    z-index: 8;
-  }
+}
+
+.house {
+  position: absolute;
+  left: 0px;
+  top: 610px;
+  width: 750px;
+  height: 722px;
+  z-index: 7;
+}
+.line {
+  position: absolute;
+  left: 0px;
+  top: 176px;
+  width: 750px;
+  height: 919px;
+  z-index: 8;
 }
