@@ -12,8 +12,7 @@ const useAppContainer = () => {
     Promise.all(
       resources.map(async (url) => {
         try {
-          await loadImage(`/resources/${url}`);
-          console.log("loaded -", url);
+          await loadImage(`https://ixxl.oss-cn-beijing.aliyuncs.com/zw_h5/resources/${url}`);
         } catch (error) {
           console.log(error);
         } finally {

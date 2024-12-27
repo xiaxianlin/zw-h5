@@ -6,6 +6,7 @@ export const loadImage = (url: string) => {
     img.onload = () => resolve(img);
     img.onerror = () => reject();
     img.src = url;
+    console.log("loaded -", url);
   });
 };
 

@@ -12,11 +12,11 @@ export function Block07() {
   return (
     <div ref={ref} className="block bottom-block">
       <div className="bg">
-        <animated.img src="/resources/block07/bg.png" />
+        <animated.img src="https://ixxl.oss-cn-beijing.aliyuncs.com/zw_h5/resources/block07/bg.png" />
       </div>
       <div className="content info-content">
         <animated.img
-          src="/resources/block07/button.png"
+          src="https://ixxl.oss-cn-beijing.aliyuncs.com/zw_h5/resources/block07/button.png"
           className={styles.button}
           style={button.styles}
           onClick={() => setVisible(true)}
