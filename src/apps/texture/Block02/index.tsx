@@ -2,13 +2,19 @@ import { animated } from "@react-spring/web";
 import styles from "./index.module.scss";
 import { useAppModel } from "@apps/texture/model";
 import { sleep } from "@shared/utils";
-import { useFadeInAndBreath, useExpandDown, useFadeInAndSlideY, useInViewOnce } from "@shared/hooks";
+import {
+  useFadeInAndBreath,
+  useExpandDown,
+  useFadeInAndSlideY,
+  useInViewOnce,
+  useFadeInThenMoveY,
+} from "@shared/hooks";
 
 export function Block02() {
   const { ratio } = useAppModel();
 
   const example = useFadeInAndBreath({ duration: 1200 });
-  const demo = useFadeInAndSlideY(30, { duration: 1000 });
+  const demo = useFadeInThenMoveY(5, { duration: 1000 });
   const title = useFadeInAndSlideY(30, { duration: 800 });
   const intro = useExpandDown(253 * ratio, { duration: 1500 });
 

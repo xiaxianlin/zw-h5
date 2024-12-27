@@ -25,7 +25,6 @@ export default function Music() {
       </animated.div>
       <audio
         loop
-        preload="auto"
         ref={audioRef}
         style={{ display: "none" }}
         src="/assets/bg.mp3"

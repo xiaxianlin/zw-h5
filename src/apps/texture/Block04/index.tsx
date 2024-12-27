@@ -1,11 +1,17 @@
 import { animated } from "@react-spring/web";
 import styles from "./index.module.scss";
 import { sleep } from "@shared/utils";
-import { useFadeInAndBreath, useFadeInAndSlideX, useFadeInAndSlideY, useInViewOnce } from "@shared/hooks";
+import {
+  useFadeInAndBreath,
+  useFadeInAndSlideX,
+  useFadeInAndSlideY,
+  useFadeInThenMoveY,
+  useInViewOnce,
+} from "@shared/hooks";
 
 export function Block04() {
   const example = useFadeInAndBreath({ duration: 1000 });
-  const demo = useFadeInAndSlideY(20, { duration: 800 });
+  const demo = useFadeInThenMoveY(5, { duration: 800 });
   const title = useFadeInAndSlideX(-30, { duration: 600 });
   const intro = useFadeInAndSlideY(10, { duration: 800 });
 

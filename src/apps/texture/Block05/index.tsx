@@ -5,7 +5,7 @@ import {
   useExpandDown,
   useFadeInAndBreath,
   useFadeInAndSlideX,
-  useFadeInAndSlideY,
+  useFadeInThenMoveY,
   useInViewOnce,
 } from "@shared/hooks";
 import { useAppModel } from "@apps/texture/model";
@@ -13,7 +13,7 @@ import { useAppModel } from "@apps/texture/model";
 export function Block05() {
   const { ratio } = useAppModel();
   const example = useFadeInAndBreath({ duration: 800 });
-  const demo = useFadeInAndSlideY(30, { duration: 800 });
+  const demo = useFadeInThenMoveY(5, { duration: 800 });
   const title = useFadeInAndSlideX(20, { duration: 600 });
   const intro = useExpandDown(248 * ratio, { duration: 1200 });
 

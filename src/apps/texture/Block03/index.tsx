@@ -4,8 +4,8 @@ import { sleep } from "@shared/utils";
 import { useFadeInThenBlink, useFadeInAndSlideX, useFadeInAndSlideY, useInViewOnce } from "@shared/hooks";
 
 export function Block03() {
-  const example = useFadeInThenBlink(5, { duration: 800 });
-  const demo = useFadeInAndSlideY(30, { duration: 800 });
+  const example = useFadeInThenBlink({ duration: 800 });
+  const demo = useFadeInThenBlink({ duration: 800 });
   const title = useFadeInAndSlideX(30, { duration: 800 });
   const intro = useFadeInAndSlideY(10, { duration: 800 });
 

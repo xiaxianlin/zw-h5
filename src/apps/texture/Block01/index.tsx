@@ -6,22 +6,21 @@ import {
   useFadeInThenBreath,
   useExpandDown,
   useFadeInAndSlideX,
-  useFadeInAndRotate,
+  useFadeInThenRotate,
   useInViewOnce,
 } from "@shared/hooks";
 
 export function Block01() {
   const { ratio } = useAppModel();
 
-  const example = useFadeInThenBreath({ duration: 500 });
-  const demo = useFadeInAndRotate(3, 2, { duration: 800 });
+  const example = useFadeInThenBreath({ duration: 500, times: 2 });
+  const demo = useFadeInThenRotate(3, { duration: 800 });
   const title = useFadeInAndSlideX(-20, { duration: 600 });
   const intro = useExpandDown(323 * ratio, { duration: 1600 });
 
   const [ref] = useInViewOnce(0.5, async () => {
     example.api.start();
     await sleep(1500);
-    console.log("demo");
     demo.api.start();
     await sleep(800);
     title.api.start();
