@@ -9,6 +9,7 @@ import { useAppModel } from "../model";
 import { animated, useSpring, useSpringRef } from "@react-spring/web";
 import { useBreath } from "@shared/hooks";
 import html2canvas from "html2canvas";
+import { RESOURCE_URL } from "../resource";
 
 type Props = {
   index: number;
@@ -24,7 +25,7 @@ const Info = ({ index, created, loading, onChange, onCreate }: Props) => {
   return (
     <div className={clsx(styles.block, styles.info)} style={{ display: created ? "none" : "flex" }}>
       <div className={styles.bg}>
-        <animated.img src="/resources/modal/bg.png" />
+        <animated.img src={`${RESOURCE_URL}/block04/bg.png`} />
       </div>
       <div className={styles.content}>
         <div className={styles.tip}>向右滑动,确定后点击图片开始创作</div>
@@ -67,7 +68,7 @@ const Poster = forwardRef(({ index }: { index: number }, ref: any) => {
   return (
     <div ref={ref} className={clsx(styles.block, styles.poster)}>
       <div className={styles.bg}>
-        <animated.img src="/resources/modal/bg.png" />
+        <animated.img src={`${RESOURCE_URL}/block04/bg.png`} />
       </div>
       <div className={styles.content}>
         <div className={styles.title}>你的专属丝巾设计完成啦!</div>
@@ -120,7 +121,10 @@ export default function Modal() {
       <div className={styles.body}>
         <Info index={index} created={created} loading={loading} onChange={setIndex} onCreate={handleCreate} />
         <Poster ref={domRef} index={index} />
-        <div className={clsx(styles.block, styles.canvas)}>{url && <animated.img src={url} />}</div>
+        <div className={clsx(styles.block, styles.canvas)}>
+          {url && <animated.img src={url} />}
+          <div className={styles.close} onClick={() => setCreaded(false)} />
+        </div>
       </div>
     </animated.div>
   );

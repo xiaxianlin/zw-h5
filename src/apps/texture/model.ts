@@ -6,7 +6,7 @@ import { loadImage } from "@shared/utils/file";
 const useAppContainer = () => {
   const [count, setCount] = useState(0);
   const [loaded, setLoaded] = useState(false);
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     Promise.all(
