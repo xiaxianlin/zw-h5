@@ -4,6 +4,9 @@ import { pluginSass } from "@rsbuild/plugin-sass";
 import { pluginRem } from "@rsbuild/plugin-rem";
 import { pluginSvgr } from "@rsbuild/plugin-svgr";
 
+// @ts-ignore
+const isDev = process.env.NODE_ENV === "development";
+
 export default defineConfig({
   plugins: [pluginReact(), pluginSass(), pluginSvgr(), pluginRem({ rootFontSize: 100, screenWidth: 750 })],
   html: {
@@ -19,6 +22,11 @@ export default defineConfig({
     preload: {
       type: "all-chunks",
       include: [/.*\.png$/],
+    },
+  },
+  source: {
+    define: {
+      _RESOURCE_URL_: JSON.stringify(isDev ? "/resources" : "https://ixxl.oss-cn-beijing.aliyuncs.com/zw_h5/resources"),
     },
   },
 });

@@ -9,6 +9,7 @@ import {
   useInViewOnce,
 } from "@shared/hooks";
 import { useAppModel } from "@apps/texture/model";
+import { RESOURCE_URL } from "../resource";
 
 export function Block05() {
   const { ratio } = useAppModel();
@@ -30,13 +31,13 @@ export function Block05() {
   return (
     <div ref={ref} className="block">
       <div className="bg">
-        <animated.img src="https://ixxl.oss-cn-beijing.aliyuncs.com/zw_h5/resources/block05/bg.png" />
+        <animated.img src={`${RESOURCE_URL}/block05/bg.png`} />
       </div>
       <div className="content info-content">
-        <animated.img className={styles.title} style={title.styles} src="https://ixxl.oss-cn-beijing.aliyuncs.com/zw_h5/resources/block05/title.png" />
-        <animated.img className={styles.example} style={example.styles} src="https://ixxl.oss-cn-beijing.aliyuncs.com/zw_h5/resources/block05/example.png" />
-        <animated.img className={styles.demo} style={demo.styles} src="https://ixxl.oss-cn-beijing.aliyuncs.com/zw_h5/resources/block05/demo.png" />
-        <animated.img className={styles.intro} style={intro.styles} src="https://ixxl.oss-cn-beijing.aliyuncs.com/zw_h5/resources/block05/intro.png" />
+        <animated.img className={styles.title} style={title.styles} src={`${RESOURCE_URL}/block05/title.png`} />
+        <animated.img className={styles.example} style={example.styles} src={`${RESOURCE_URL}/block05/example.png`} />
+        <animated.img className={styles.demo} style={demo.styles} src={`${RESOURCE_URL}/block05/demo.png`} />
+        <animated.img className={styles.intro} style={intro.styles} src={`${RESOURCE_URL}/block05/intro.png`} />
       </div>
     </div>
   );

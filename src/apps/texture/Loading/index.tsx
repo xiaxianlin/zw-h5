@@ -2,7 +2,7 @@ import styles from "./index.module.scss";
 import { animated, useSpring } from "@react-spring/web";
 import { CircleProgress } from "@shared/components";
 
-import img3 from "./assets/03.png?inline";
+import img3 from "./assets/icon.png?inline";
 import { useFadeOut } from "@shared/hooks";
 import { useAppModel } from "../model";
 import { useState } from "react";

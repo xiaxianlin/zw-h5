@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { createContainer } from "unstated-next";
-import { resources } from "./resource";
+import { RESOURCE_URL, resources } from "./resource";
 import { loadImage } from "@shared/utils/file";
 
 const useAppContainer = () => {
@@ -12,7 +12,7 @@ const useAppContainer = () => {
     Promise.all(
       resources.map(async (url) => {
         try {
-          await loadImage(`https://ixxl.oss-cn-beijing.aliyuncs.com/zw_h5/resources/${url}`);
+          await loadImage(`${RESOURCE_URL}/${url}`);
         } catch (error) {
           console.log(error);
         } finally {

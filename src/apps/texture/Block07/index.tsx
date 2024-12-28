@@ -2,6 +2,7 @@ import { animated } from "@react-spring/web";
 import styles from "./index.module.scss";
 import { useFadeInThenBreath, useInViewOnce } from "@shared/hooks";
 import { useAppModel } from "../model";
+import { RESOURCE_URL } from "../resource";
 
 export function Block07() {
   const { setVisible } = useAppModel();
@@ -12,11 +13,11 @@ export function Block07() {
   return (
     <div ref={ref} className="block bottom-block">
       <div className="bg">
-        <animated.img src="https://ixxl.oss-cn-beijing.aliyuncs.com/zw_h5/resources/block07/bg.png" />
+        <animated.img src={`${RESOURCE_URL}/block07/bg.png`} />
       </div>
       <div className="content info-content">
         <animated.img
-          src="https://ixxl.oss-cn-beijing.aliyuncs.com/zw_h5/resources/block07/button.png"
+          src={`${RESOURCE_URL}/block07/button.png`}
           className={styles.button}
           style={button.styles}
           onClick={() => setVisible(true)}

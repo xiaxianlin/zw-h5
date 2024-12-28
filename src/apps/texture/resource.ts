@@ -1,3 +1,5 @@
+// @ts-ignore
+export const RESOURCE_URL = _RESOURCE_URL_;
 export const resources = [
   "block00/bg.png",
   "block00/bird.png",

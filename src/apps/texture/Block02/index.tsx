@@ -9,6 +9,7 @@ import {
   useInViewOnce,
   useFadeInThenMoveY,
 } from "@shared/hooks";
+import { RESOURCE_URL } from "../resource";
 
 export function Block02() {
   const { ratio } = useAppModel();
@@ -30,13 +31,13 @@ export function Block02() {
   return (
     <div ref={ref} className="block">
       <div className="bg">
-        <animated.img src="https://ixxl.oss-cn-beijing.aliyuncs.com/zw_h5/resources/block02/bg.png" />
+        <animated.img src={`${RESOURCE_URL}/block02/bg.png`} />
       </div>
       <div className="content info-content">
-        <animated.img className={styles.title} style={title.styles} src="https://ixxl.oss-cn-beijing.aliyuncs.com/zw_h5/resources/block02/title.png" />
-        <animated.img className={styles.example} style={example.styles} src="https://ixxl.oss-cn-beijing.aliyuncs.com/zw_h5/resources/block02/example.png" />
-        <animated.img className={styles.demo} style={demo.styles} src="https://ixxl.oss-cn-beijing.aliyuncs.com/zw_h5/resources/block02/demo.png" />
-        <animated.img className={styles.intro} style={intro.styles} src="https://ixxl.oss-cn-beijing.aliyuncs.com/zw_h5/resources/block02/intro.png" />
+        <animated.img className={styles.title} style={title.styles} src={`${RESOURCE_URL}/block02/title.png`} />
+        <animated.img className={styles.example} style={example.styles} src={`${RESOURCE_URL}/block02/example.png`} />
+        <animated.img className={styles.demo} style={demo.styles} src={`${RESOURCE_URL}/block02/demo.png`} />
+        <animated.img className={styles.intro} style={intro.styles} src={`${RESOURCE_URL}/block02/intro.png`} />
       </div>
     </div>
   );

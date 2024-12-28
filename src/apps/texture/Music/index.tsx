@@ -3,6 +3,7 @@ import styles from "./index.module.scss";
 import CloseIcon from "./assets/close.svg?react";
 import { animated, useSpringValue } from "@react-spring/web";
 import { useRef } from "react";
+import { RESOURCE_URL } from "../resource";
 
 export default function Music() {
   const opacity = useSpringValue(0);
@@ -26,7 +27,7 @@ export default function Music() {
         playsInline
         preload="auto"
         ref={audioRef}
-        src="/assets/bg.mp3"
+        src={`${RESOURCE_URL}/bg.mp3`}
         onCanPlay={() => opacity.start(1)}
         style={{ position: "fixed", zIndex: 0, opacity: 0 }}
       />
