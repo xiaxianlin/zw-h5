@@ -2,35 +2,24 @@ import styles from "./index.module.scss";
 // @ts-ignore
 import CloseIcon from "./assets/close.svg?react";
 import { animated, useSpringValue } from "@react-spring/web";
-import { useRef } from "react";
-import { RESOURCE_URL } from "../resource";
+import { useEffect } from "react";
 
 export default function Music() {
-  const opacity = useSpringValue(0);
-  const audioRef = useRef<HTMLAudioElement>(null);
+  const opacity = useSpringValue(window.WeixinJSBridge ? 0 : 1);
+  const music = document.getElementById("bgMusic") as HTMLAudioElement;
+
   const handleButton = async () => {
-    if (audioRef.current) {
-      audioRef.current.volume = 0.5;
-      audioRef.current.muted = false;
-      audioRef.current.play();
-    }
     opacity.start(0);
+    music.volume = 0.5;
+    music.play();
   };
+
+  useEffect(() => {
+    window.WeixinJSBridge?.invoke("getNetworkType", {}, handleButton, false);
+  }, []);
   return (
-    <>
-      <animated.div className={styles.button} style={{ opacity }} onClick={handleButton}>
-        <CloseIcon />
-      </animated.div>
-      <audio
-        loop
-        muted
-        playsInline
-        preload="auto"
-        ref={audioRef}
-        src={`${RESOURCE_URL}/bg.mp3`}
-        onCanPlay={() => opacity.start(1)}
-        style={{ position: "fixed", zIndex: 0, opacity: 0 }}
-      />
-    </>
+    <animated.div className={styles.button} style={{ opacity }} onClick={handleButton}>
+      <CloseIcon />
+    </animated.div>
   );
 }
