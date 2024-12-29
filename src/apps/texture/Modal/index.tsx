@@ -10,6 +10,7 @@ import { animated, useSpring, useSpringRef } from "@react-spring/web";
 import { useBreath } from "@shared/hooks";
 import html2canvas from "html2canvas";
 import { RESOURCE_URL } from "../resource";
+import { LoadingIcon } from "../Loading/icon";
 
 type Props = {
   index: number;
@@ -54,7 +55,7 @@ const Info = ({ index, created, loading, onChange, onCreate }: Props) => {
       </div>
       {loading && (
         <div className={styles.loaderWrapper}>
-          <div className={styles.loader} />
+          <LoadingIcon />
           <p>海报生成中...</p>
         </div>
       )}

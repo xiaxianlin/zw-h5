@@ -1,9 +1,16 @@
 import styles from "./index.module.scss";
-import { animated } from "@react-spring/web";
-import { useProgress } from "@shared/hooks";
+import { animated, useSpringValue } from "@react-spring/web";
 
-export function BlockProgress({ duration, onFinish }: { duration: number; onFinish?: () => void }) {
-  const { progress, x } = useProgress(duration, { onFinish });
+export function BlockProgress({ progress, onFinish }: { progress: number; onFinish?: () => void }) {
+  const x = useSpringValue(0);
+  x.start(progress, {
+    config: { duration: 100, mass: 2, friction: 10, tension: 300 },
+    onRest: () => {
+      if (progress >= 100) {
+        onFinish?.();
+      }
+    },
+  });
   return (
     <div className={styles.wrapper}>
       <div className={styles.progress}>

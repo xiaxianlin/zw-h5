@@ -15,8 +15,13 @@ body {
   -webkit-overflow-scrolling: touch;
   -webkit-tap-highlight-color: transparent;
 }
+
 * {
   box-sizing: border-box;
+}
+
+p {
+  margin: 0;
 }
 
 .absolute {
