@@ -8,7 +8,12 @@ import { pluginSvgr } from "@rsbuild/plugin-svgr";
 const isDev = process.env.NODE_ENV === "development";
 
 export default defineConfig({
-  plugins: [pluginReact(), pluginSass(), pluginSvgr(), pluginRem({ rootFontSize: 100, screenWidth: 750 })],
+  plugins: [
+    pluginReact(),
+    pluginSass(),
+    pluginSvgr(),
+    pluginRem({ rootFontSize: 100, screenWidth: 750, maxRootFontSize: 100 }),
+  ],
   html: {
     template: "./public/index.html",
   },

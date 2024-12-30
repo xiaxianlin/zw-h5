@@ -1,5 +1,4 @@
 import "swiper/css";
-import { QRCodeCanvas } from "qrcode.react";
 import { forwardRef, useEffect, useMemo, useRef, useState } from "react";
 import { INFO_CONTENTS, POSTER_CONTENTS, images } from "./constants";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -11,6 +10,7 @@ import { useBreath } from "@shared/hooks";
 import html2canvas from "html2canvas";
 import { RESOURCE_URL } from "../resource";
 import { LoadingIcon } from "../Loading/icon";
+import QRCode from "qrcode";
 
 type Props = {
   index: number;
@@ -24,6 +24,7 @@ type Props = {
 const Info = ({ index, created, loading, onChange, onCreate, onClose }: Props) => {
   const info = useMemo(() => INFO_CONTENTS[index], [index]);
   const spring = useBreath({ auto: true, duration: 600 });
+
   return (
     <div className={clsx(styles.block, styles.info)} style={{ display: created ? "none" : "flex" }}>
       <div className={styles.close} onClick={onClose} />
@@ -66,8 +67,18 @@ const Info = ({ index, created, loading, onChange, onCreate, onClose }: Props) =
 };
 
 const Poster = forwardRef(({ index }: { index: number }, ref: any) => {
-  const { ratio } = useAppModel();
   const poster = useMemo(() => POSTER_CONTENTS[index], [index]);
+  const [qrcode, setQrcode] = useState("");
+
+  useEffect(() => {
+    QRCode.toCanvas(document.getElementById("qrcode")!, window.location.href, {
+      margin: 0,
+      errorCorrectionLevel: "H",
+    }).then((canvas: any) => {
+      setQrcode(canvas.toDataURL("image/png"));
+    });
+  }, [window.location.href]);
+
   return (
     <div ref={ref} className={clsx(styles.block, styles.poster)}>
       <div className={styles.bg}>
@@ -86,12 +97,8 @@ const Poster = forwardRef(({ index }: { index: number }, ref: any) => {
           <p>{poster.text[1]}</p>
         </div>
         <div className={styles.qrcode}>
-          <QRCodeCanvas
-            value={window.location.href}
-            size={72 * ratio}
-            bgColor={"#ffffff"}
-            fgColor={"#000000"}
-          />
+          <canvas id="qrcode" />
+          <animated.img src={qrcode} crossOrigin="anonymous" />
         </div>
         <div className={styles.scan}>扫码定制您的宋韵丝巾</div>
       </div>
@@ -100,7 +107,7 @@ const Poster = forwardRef(({ index }: { index: number }, ref: any) => {
 });
 
 export default function Modal() {
-  const { visible } = useAppModel();
+  const { visible, setVisible } = useAppModel();
   const [index, setIndex] = useState(0);
   const [created, setCreaded] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -121,7 +128,7 @@ export default function Modal() {
   };
 
   useEffect(() => {
-    visible && api.start({ opacity: 1, scale: 1 });
+    api.start({ opacity: +visible, scale: +visible });
   }, [visible]);
 
   return (
@@ -133,7 +140,7 @@ export default function Modal() {
           loading={loading}
           onChange={setIndex}
           onCreate={handleCreate}
-          onClose={() => api.start({ opacity: 0, scale: 0 })}
+          onClose={() => setVisible(false)}
         />
         <Poster ref={domRef} index={index} />
         <div className={clsx(styles.block, styles.canvas)}>
