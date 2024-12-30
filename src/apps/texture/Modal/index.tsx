@@ -71,13 +71,13 @@ const Poster = forwardRef(({ index }: { index: number }, ref: any) => {
   return (
     <div ref={ref} className={clsx(styles.block, styles.poster)}>
       <div className={styles.bg}>
-        <animated.img src={`${RESOURCE_URL}/block04/bg.png`} />
+        <animated.img src={`${RESOURCE_URL}/block04/bg.png`} crossOrigin="anonymous" />
       </div>
       <div className={styles.content}>
         <div className={styles.title}>你的专属丝巾设计完成啦!</div>
         <div className={styles.desc}>这一刻，艺术因你而生。</div>
         <div className={styles.image}>
-          <animated.img src={`/resources/modal/y0${index + 1}.png`} />
+          <animated.img src={`/resources/modal/y0${index + 1}.png`} crossOrigin="anonymous" />
         </div>
         <div className={styles.intro}>
           <p>你的选择与随机生成的创意</p>
@@ -86,7 +86,12 @@ const Poster = forwardRef(({ index }: { index: number }, ref: any) => {
           <p>{poster.text[1]}</p>
         </div>
         <div className={styles.qrcode}>
-          <QRCodeCanvas value={window.location.href} size={72 * ratio} bgColor={"#ffffff"} fgColor={"#000000"} />
+          <QRCodeCanvas
+            value={window.location.href}
+            size={72 * ratio}
+            bgColor={"#ffffff"}
+            fgColor={"#000000"}
+          />
         </div>
         <div className={styles.scan}>扫码定制您的宋韵丝巾</div>
       </div>
