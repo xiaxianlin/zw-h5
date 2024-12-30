@@ -1,12 +1,18 @@
 import { animated } from "@react-spring/web";
 import styles from "./index.module.scss";
 import { sleep } from "@shared/utils";
-import { useFadeInThenBlink, useFadeInAndSlideX, useFadeInAndSlideY, useInViewOnce } from "@shared/hooks";
+import {
+  useFadeInThenBlink,
+  useFadeInAndSlideX,
+  useFadeInAndSlideY,
+  useInViewOnce,
+  useFadeInThenMoveY,
+} from "@shared/hooks";
 import { RESOURCE_URL } from "../resource";
 
 export function Block03() {
   const example = useFadeInThenBlink({ duration: 800 });
-  const demo = useFadeInThenBlink({ duration: 800 });
+  const demo = useFadeInThenMoveY(5, { duration: 1000 });
   const title = useFadeInAndSlideX(30, { duration: 800 });
   const intro = useFadeInAndSlideY(10, { duration: 800 });
 
