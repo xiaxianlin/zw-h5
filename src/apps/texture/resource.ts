@@ -53,10 +53,4 @@ export const resources = [
   "modal/x04.png",
   "modal/x05.png",
   "modal/x06.png",
-  "modal/y01.png",
-  "modal/y02.png",
-  "modal/y03.png",
-  "modal/y04.png",
-  "modal/y05.png",
-  "modal/y06.png",
 ];

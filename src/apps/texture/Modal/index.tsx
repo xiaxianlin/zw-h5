@@ -12,6 +12,14 @@ import { RESOURCE_URL } from "../resource";
 import { LoadingIcon } from "../Loading/icon";
 import QRCode from "qrcode";
 
+import bg from "./assets/bg.png?inline";
+import y01 from "./assets/y01.png?inline";
+import y02 from "./assets/y02.png?inline";
+import y03 from "./assets/y03.png?inline";
+import y04 from "./assets/y04.png?inline";
+import y05 from "./assets/y05.png?inline";
+import y06 from "./assets/y06.png?inline";
+
 type Props = {
   index: number;
   created: boolean;
@@ -21,6 +29,8 @@ type Props = {
   onClose?: () => void;
 };
 
+const y = [y01, y02, y03, y04, y05, y06];
+
 const Info = ({ index, created, loading, onChange, onCreate, onClose }: Props) => {
   const info = useMemo(() => INFO_CONTENTS[index], [index]);
   const spring = useBreath({ auto: true, duration: 600 });
@@ -29,14 +39,14 @@ const Info = ({ index, created, loading, onChange, onCreate, onClose }: Props) =
     <div className={clsx(styles.block, styles.info)} style={{ display: created ? "none" : "flex" }}>
       <div className={styles.close} onClick={onClose} />
       <div className={styles.bg}>
-        <animated.img src={`${RESOURCE_URL}/block04/bg.png`} />
+        <animated.img src={bg} />
       </div>
       <div className={styles.content}>
         <div className={styles.tip}>向右滑动,确定后点击图片开始创作</div>
         <Swiper className={styles.image} onSlideChange={(swiper) => onChange?.(swiper.activeIndex)}>
           {images.map((i) => (
             <SwiperSlide key={i}>
-              <animated.img src={`/resources/modal/x0${i}.png`} style={spring.styles} />
+              <animated.img src={`${RESOURCE_URL}/modal/x0${i}.png`} style={spring.styles} />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -82,13 +92,13 @@ const Poster = forwardRef(({ index }: { index: number }, ref: any) => {
   return (
     <div ref={ref} className={clsx(styles.block, styles.poster)}>
       <div className={styles.bg}>
-        <animated.img src={`${RESOURCE_URL}/block04/bg.png`} crossOrigin="anonymous" />
+        <animated.img src={bg} crossOrigin="anonymous" />
       </div>
       <div className={styles.content}>
         <div className={styles.title}>你的专属丝巾设计完成啦!</div>
         <div className={styles.desc}>这一刻，艺术因你而生。</div>
         <div className={styles.image}>
-          <animated.img src={`/resources/modal/y0${index + 1}.png`} crossOrigin="anonymous" />
+          <animated.img src={y[index]} crossOrigin="anonymous" />
         </div>
         <div className={styles.intro}>
           <p>你的选择与随机生成的创意</p>

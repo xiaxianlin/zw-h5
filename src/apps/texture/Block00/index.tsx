@@ -2,7 +2,7 @@ import { useAppModel } from "@apps/texture/model";
 import styles from "./index.module.scss";
 import { animated, useTrail } from "@react-spring/web";
 import { useEffect } from "react";
-import { useFadeIn, useFadeInAndSlideY } from "@shared/hooks";
+import { useFadeIn, useFadeInAndSlideY, useFadeInThenBreath } from "@shared/hooks";
 import { sleep } from "@shared/utils";
 import { RESOURCE_URL } from "../resource";
 
@@ -13,7 +13,7 @@ export function Block00({ onStart }: { onStart?: () => void }) {
 
   const wen = useFadeIn({ duration: 750 });
 
-  const button = useFadeIn({ duration: 750 });
+  const button = useFadeInThenBreath({ duration: 750 });
   const start = useFadeInAndSlideY(30, { duration: 750 });
   const [words, wordsApi] = useTrail(items.length, () => ({
     opacity: 0,

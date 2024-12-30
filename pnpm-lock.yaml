@@ -14,9 +14,6 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
-      dom-to-image:
-        specifier: ^2.6.0
-        version: 2.6.0
       html2canvas:
         specifier: ^1.4.1
         version: 1.4.1
@@ -51,9 +48,6 @@ importers:
       '@rsbuild/plugin-svgr':
         specifier: ^1.0.6
         version: 1.0.6(@rsbuild/core@1.1.13)(typescript@5.7.2)
-      '@types/dom-to-image':
-        specifier: ^2.6.7
-        version: 2.6.7
       '@types/node':
         specifier: ^22.10.2
         version: 22.10.2
@@ -391,9 +385,6 @@ packages:
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
     engines: {node: '>=10.13.0'}
 
-  '@types/dom-to-image@2.6.7':
-    resolution: {integrity: sha512-me5VbCv+fcXozblWwG13krNBvuEOm6kA5xoa4RrjDJCNFOZSWR3/QLtOXimBHk1Fisq69Gx3JtOoXtg1N1tijg==}
-
   '@types/node@22.10.2':
     resolution: {integrity: sha512-Xxr6BBRCAOQixvonOye19wnzyDiUtTeqldOOmj3CkeblonbccA12PFwlufvRdrpjXxqnmUaeiU5EOA+7s5diUQ==}
 
@@ -553,9 +544,6 @@ packages:
 
   dom-serializer@2.0.0:
     resolution: {integrity: sha512-wIkAryiqt/nV5EQKqQpo3SToSOV9J0DnbJqwK7Wv/Trc92zIAYZ4FlMu+JPFW1DfGFt81ZTCGgDEabffXeLyJg==}
-
-  dom-to-image@2.6.0:
-    resolution: {integrity: sha512-Dt0QdaHmLpjURjU7Tnu3AgYSF2LuOmksSGsUcE6ItvJoCWTBEmiMXcqBdNSAm9+QbbwD7JMoVsuuKX6ZVQv1qA==}
 
   domelementtype@2.3.0:
     resolution: {integrity: sha512-OLETBj6w0OsagBwdXnPdN0cnMfF9opN69co+7ZrbfPGrdpPVNBUj02spi6B1N7wChLQiPn4CSH/zJvXw56gmHw==}
@@ -1386,8 +1374,6 @@ snapshots:
 
   '@trysound/sax@0.2.0': {}
 
-  '@types/dom-to-image@2.6.7': {}
-
   '@types/node@22.10.2':
     dependencies:
       undici-types: 6.20.0
@@ -1522,8 +1508,6 @@ snapshots:
       domelementtype: 2.3.0
       domhandler: 5.0.3
       entities: 4.5.0
-
-  dom-to-image@2.6.0: {}
 
   domelementtype@2.3.0: {}
 
