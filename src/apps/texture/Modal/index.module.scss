@@ -56,6 +56,9 @@
 
 .info {
   z-index: 110;
+  .close {
+    z-index: 200;
+  }
   .tip {
     font-size: 28px;
     line-height: 42px;

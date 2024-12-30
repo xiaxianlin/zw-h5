@@ -8,7 +8,7 @@ import { RESOURCE_URL } from "../resource";
 
 const items = ["yang", "li", "de", "song", "yun"];
 
-export function Block00() {
+export function Block00({ onStart }: { onStart?: () => void }) {
   const { loaded } = useAppModel();
 
   const wen = useFadeIn({ duration: 750 });
@@ -52,7 +52,12 @@ export function Block00() {
         </animated.div>
         <animated.img className={styles.bird} src={`${RESOURCE_URL}/block00/bird.png`} />
         <animated.div className={styles.button}>
-          <animated.img className={styles.icon} style={button.styles} src={`${RESOURCE_URL}/block00/button.png`} />
+          <animated.img
+            className={styles.icon}
+            style={button.styles}
+            src={`${RESOURCE_URL}/block00/button.png`}
+            onClick={onStart}
+          />
           <animated.img className={styles.start} style={start.styles} src={`${RESOURCE_URL}/block00/start.png`} />
         </animated.div>
         <animated.img className={styles.house} src={`${RESOURCE_URL}/block00/house.png`} />

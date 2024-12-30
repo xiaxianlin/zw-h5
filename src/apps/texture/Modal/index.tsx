@@ -18,13 +18,15 @@ type Props = {
   loading: boolean;
   onChange?: (index: number) => void;
   onCreate?: () => void;
+  onClose?: () => void;
 };
 
-const Info = ({ index, created, loading, onChange, onCreate }: Props) => {
+const Info = ({ index, created, loading, onChange, onCreate, onClose }: Props) => {
   const info = useMemo(() => INFO_CONTENTS[index], [index]);
   const spring = useBreath({ auto: true, duration: 600 });
   return (
     <div className={clsx(styles.block, styles.info)} style={{ display: created ? "none" : "flex" }}>
+      <div className={styles.close} onClick={onClose} />
       <div className={styles.bg}>
         <animated.img src={`${RESOURCE_URL}/block04/bg.png`} />
       </div>
@@ -120,7 +122,14 @@ export default function Modal() {
   return (
     <animated.div className={styles.wrapper} style={springs}>
       <div className={styles.body}>
-        <Info index={index} created={created} loading={loading} onChange={setIndex} onCreate={handleCreate} />
+        <Info
+          index={index}
+          created={created}
+          loading={loading}
+          onChange={setIndex}
+          onCreate={handleCreate}
+          onClose={() => api.start({ opacity: 0, scale: 0 })}
+        />
         <Poster ref={domRef} index={index} />
         <div className={clsx(styles.block, styles.canvas)}>
           {url && <animated.img src={url} />}
