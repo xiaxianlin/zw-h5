@@ -15,10 +15,6 @@ export function Loading() {
 
   const loading = useFadeOut({ duration: 500, onFinish: () => setVisible(false) });
 
-  if (total && total === count) {
-    // loading.api.start();
-  }
-
   if (!visible) {
     return null;
   }
@@ -27,7 +23,12 @@ export function Loading() {
     <animated.div className={styles.wrapper} style={loading.styles}>
       <div className={styles.loading}>
         <LoadingIcon />
-        <BlockProgress progress={progress > 100 ? 100 : progress} onFinish={() => loading.api.start()} />
+        <BlockProgress
+          progress={progress > 100 ? 100 : progress}
+          onFinish={() => {
+            loading.api.start();
+          }}
+        />
       </div>
     </animated.div>
   );

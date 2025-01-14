@@ -6,11 +6,11 @@
   .progress {
     width: 245px;
     height: 12px;
-    background: rgba(138, 146, 117, 0.3);
+    background: #ac8b3c;
     border-radius: 6px;
     overflow: hidden;
     div {
-      background: #8a9275;
+      background: #f2ddab;
       height: 100%;
     }
   }
@@ -21,7 +21,8 @@
 
     font-family: Alimama ShuHeiTi;
     font-size: 22px;
-    font-weight: bold;
-    color: #8a9275;
+    font-weight: 900;
+    line-height: 42px;
+    color: #f2ddab;
   }
 }

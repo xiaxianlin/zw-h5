@@ -1,8 +1,7 @@
 import styles from "./index.module.scss";
-// @ts-ignore
-import CloseIcon from "./assets/close.svg?react";
 import { animated, useSpringValue } from "@react-spring/web";
 import { useEffect } from "react";
+import clsx from "clsx";
 
 export default function Music() {
   const opacity = useSpringValue(window.WeixinJSBridge ? 0 : 1);
@@ -17,9 +16,6 @@ export default function Music() {
   useEffect(() => {
     window.WeixinJSBridge?.invoke("getNetworkType", {}, handleButton, false);
   }, []);
-  return (
-    <animated.div className={styles.button} style={{ opacity }} onClick={handleButton}>
-      <CloseIcon />
-    </animated.div>
-  );
+
+  return <animated.div className={clsx(styles.button, styles.open)} style={{ opacity }} onClick={handleButton} />;
 }

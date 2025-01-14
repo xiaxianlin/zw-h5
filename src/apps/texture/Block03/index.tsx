@@ -7,6 +7,7 @@ import {
   useFadeInAndSlideY,
   useInViewOnce,
   useFadeInThenMoveY,
+  useFadeIn,
 } from "@shared/hooks";
 import { RESOURCE_URL } from "../resource";
 
@@ -15,6 +16,7 @@ export function Block03() {
   const demo = useFadeInThenMoveY(5, { duration: 1000 });
   const title = useFadeInAndSlideX(30, { duration: 800 });
   const intro = useFadeInAndSlideY(10, { duration: 800 });
+  const hua = useFadeIn({ duration: 600 });
 
   const [ref] = useInViewOnce(0.5, async () => {
     example.api.start();
@@ -24,6 +26,8 @@ export function Block03() {
     title.api.start();
     await sleep(800);
     intro.api.start();
+    await sleep(400);
+    hua.api.start();
   });
 
   return (
@@ -36,6 +40,7 @@ export function Block03() {
         <animated.img className={styles.example} style={example.styles} src={`${RESOURCE_URL}/block03/example.png`} />
         <animated.img className={styles.demo} style={demo.styles} src={`${RESOURCE_URL}/block03/demo.png`} />
         <animated.img className={styles.intro} style={intro.styles} src={`${RESOURCE_URL}/block03/intro.png`} />
+        <animated.img className={styles.hua} style={hua.styles} src={`${RESOURCE_URL}/block03/hua.png`} />
       </div>
     </div>
   );
