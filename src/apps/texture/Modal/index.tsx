@@ -1,6 +1,5 @@
 import "swiper/css";
-import { forwardRef, useEffect, useMemo, useRef, useState } from "react";
-import { INFO_CONTENTS, POSTER_CONTENTS, images } from "./constants";
+import { forwardRef, useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import styles from "./index.module.scss";
 import clsx from "clsx";
@@ -13,12 +12,20 @@ import { LoadingIcon } from "../Loading/icon";
 import QRCode from "qrcode";
 
 import bg from "./assets/bg.png?inline";
+import header from "./assets/header.png?inline";
+import desc from "./assets/desc.png?inline";
 import x01 from "./assets/x01.png?inline";
 import x02 from "./assets/x02.png?inline";
 import x03 from "./assets/x03.png?inline";
 import x04 from "./assets/x04.png?inline";
 import x05 from "./assets/x05.png?inline";
 import x06 from "./assets/x06.png?inline";
+import z01 from "./assets/z01.png?inline";
+import z02 from "./assets/z02.png?inline";
+import z03 from "./assets/z03.png?inline";
+import z04 from "./assets/z04.png?inline";
+import z05 from "./assets/z05.png?inline";
+import z06 from "./assets/z06.png?inline";
 
 type Props = {
   index: number;
@@ -30,11 +37,11 @@ type Props = {
 };
 
 const x = [x01, x02, x03, x04, x05, x06];
+const z = [z01, z02, z03, z04, z05, z06];
+const images = [1, 2, 3, 4, 5, 6];
 
 const Info = ({ index, created, loading, onChange, onCreate, onClose }: Props) => {
-  const info = useMemo(() => INFO_CONTENTS[index], [index]);
   const spring = useBreath({ auto: true, duration: 600 });
-
   return (
     <div className={clsx(styles.block, styles.info)} style={{ display: created ? "none" : "flex" }}>
       <div className={styles.close} onClick={onClose} />
@@ -42,7 +49,7 @@ const Info = ({ index, created, loading, onChange, onCreate, onClose }: Props) =
         <animated.img src={bg} />
       </div>
       <div className={styles.content}>
-        <div className={styles.tip}>向右滑动,确定后点击图片开始创作</div>
+        <animated.img className={styles.header} src={`${RESOURCE_URL}/modal/header.png`} />
         <Swiper className={styles.image} onSlideChange={(swiper) => onChange?.(swiper.activeIndex)}>
           {images.map((i) => (
             <SwiperSlide key={i}>
@@ -55,8 +62,7 @@ const Info = ({ index, created, loading, onChange, onCreate, onClose }: Props) =
             <div key={i} className={clsx(styles.item, { [styles.active]: i === index })}></div>
           ))}
         </div>
-        <div className={styles.title}>{info.title}</div>
-        <div className={styles.intro}>{info.intro}</div>
+        <animated.img src={`${RESOURCE_URL}/modal/z0${index + 1}.png`} className={styles.intro} />
         <div className={styles.button} onClick={onCreate}>
           立即生成窗花
         </div>
@@ -72,7 +78,6 @@ const Info = ({ index, created, loading, onChange, onCreate, onClose }: Props) =
 };
 
 const Poster = forwardRef(({ index }: { index: number }, ref: any) => {
-  const poster = useMemo(() => POSTER_CONTENTS[index], [index]);
   const [qrcode, setQrcode] = useState("");
 
   useEffect(() => {
@@ -90,17 +95,10 @@ const Poster = forwardRef(({ index }: { index: number }, ref: any) => {
         <animated.img src={bg} crossOrigin="anonymous" />
       </div>
       <div className={styles.content}>
-        <div className={styles.title}>你的专属丝巾设计完成啦!</div>
-        <div className={styles.desc}>这一刻，艺术因你而生。</div>
-        <div className={styles.image}>
-          <animated.img src={x[index]} crossOrigin="anonymous" />
-        </div>
-        <div className={styles.intro}>
-          <p>你的选择与随机生成的创意</p>
-          <p>成就了这条独特的{poster.text[0]}丝巾</p>
-          <p>它象征着{poster.text[1]}</p>
-          <p>{poster.text[2]}</p>
-        </div>
+        <animated.img className={styles.header} src={header} crossOrigin="anonymous" />
+        <animated.img className={styles.desc} src={desc} crossOrigin="anonymous" />
+        <animated.img className={styles.image} src={x[index]} crossOrigin="anonymous" />
+        <animated.img className={styles.intro} src={z[index]} crossOrigin="anonymous" />
         <div className={styles.qrcode}>
           <canvas id="qrcode" />
           <animated.img src={qrcode} crossOrigin="anonymous" />

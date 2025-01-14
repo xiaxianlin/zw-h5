@@ -60,3 +60,22 @@ export const useBreath = (options?: AnmiateOptions) => {
 
   return { styles, api };
 };
+
+export const useBlink = (options?: AnmiateOptions) => {
+  const { auto, times, onFinish, ...config } = options || {};
+  const api = useSpringRef();
+  const styles = useSpring({
+    ref: api,
+    from: { opacity: 0.6 },
+    to: [{ opacity: 1 }, { opacity: 0.6 }],
+    config,
+    ...(times ? { repeat: times } : { loop: true }),
+    onRest: onFinish,
+  });
+
+  useEffect(() => {
+    auto && api.start();
+  }, [auto]);
+
+  return { styles, api };
+};

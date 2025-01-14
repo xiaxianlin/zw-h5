@@ -41,33 +41,19 @@
   }
 }
 
-.intro {
-  margin-top: 8px;
-  font-size: 24px;
-  line-height: 42px;
-  text-align: center;
-  letter-spacing: 0.1em;
-  color: #3d3d3d;
-  p {
-    margin: 0;
-  }
-}
-
 .info {
   z-index: 110;
   .close {
     z-index: 200;
   }
-  .tip {
-    font-size: 28px;
-    line-height: 42px;
-    letter-spacing: 0.1em;
-    color: #facd84;
+  .header {
+    width: 504px;
+    height: 33px;
     margin-top: 100px;
   }
 
   .image {
-    margin-top: 30px;
+    margin-top: 40px;
     width: 500px;
     height: 500px;
     img {
@@ -85,20 +71,18 @@
     .item {
       width: 20px;
       height: 20px;
-      background: #b1a295;
+      background: rgba(250, 205, 132, 0.5);
       border-radius: 10px;
       &.active {
-        background: #4d2914;
+        background: rgba(250, 205, 132, 1);
       }
     }
   }
 
-  .title {
-    margin-top: 84px;
-    font-size: 46px;
-    text-align: center;
-    letter-spacing: 0.12em;
-    color: #3d3d3d;
+  .intro {
+    margin-top: 88px;
+    width: 506px;
+    height: 217px;
   }
 
   .button {
@@ -125,30 +109,27 @@
     inset: 0;
     opacity: 0;
   }
-  .title {
+  .header {
     margin-top: 100px;
-    font-size: 40px;
-    letter-spacing: 0.1em;
-    color: #facd84;
+    width: 494px;
+    height: 44px;
   }
   .desc {
     margin-top: 28px;
-    font-size: 26px;
-    letter-spacing: 0.1em;
-    color: #facd84;
+    width: 313px;
+    height: 27px;
   }
   .image {
     margin-top: 38px;
     width: 485px;
     height: 485px;
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    object-fit: cover;
   }
+
   .intro {
-    margin-top: 50px;
+    margin-top: 70px;
+    width: 506px;
+    height: 152px;
   }
   .qrcode {
     margin-top: 20px;
