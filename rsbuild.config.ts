@@ -35,7 +35,7 @@ export default defineConfig({
   },
   source: {
     define: {
-      _RESOURCE_URL_: JSON.stringify(isDev ? "/resources" : "https://zw.ixxl.me/resources"),
+      _RESOURCE_URL_: JSON.stringify(isDev ? "/textures" : "https://zw.ixxl.me/textures"),
     },
   },
 });
