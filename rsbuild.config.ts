@@ -28,10 +28,14 @@ export default defineConfig({
       type: "all-chunks",
       include: [/.*\.png$/],
     },
+    chunkSplit: {
+      strategy: "split-by-size",
+      maxSize: 50_000,
+    },
   },
   source: {
     define: {
-      _RESOURCE_URL_: JSON.stringify(isDev ? "/resources" : "https://ixxl.oss-cn-beijing.aliyuncs.com/zw_h5/resources"),
+      _RESOURCE_URL_: JSON.stringify(isDev ? "/resources" : "https://zw.ixxl.me/resources"),
     },
   },
 });

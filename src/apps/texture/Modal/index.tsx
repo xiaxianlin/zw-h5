@@ -64,13 +64,13 @@ const Info = ({ index, created, loading, onChange, onCreate, onClose }: Props) =
         </div>
         <animated.img src={`${RESOURCE_URL}/modal/z0${index + 1}.png`} className={styles.intro} />
         <div className={styles.button} onClick={onCreate}>
-          立即生成窗花
+          立即生成纹样
         </div>
       </div>
       {loading && (
         <div className={styles.loaderWrapper}>
           <LoadingIcon />
-          <p>海报生成中...</p>
+          <p>纹样生成中...</p>
         </div>
       )}
     </div>
@@ -103,7 +103,7 @@ const Poster = forwardRef(({ index }: { index: number }, ref: any) => {
           <canvas id="qrcode" />
           <animated.img src={qrcode} crossOrigin="anonymous" />
         </div>
-        <div className={styles.scan}>扫码定制您的宋韵窗花</div>
+        <div className={styles.scan}>扫码定制您的宋韵纹样</div>
       </div>
     </div>
   );
