@@ -17,5 +17,5 @@ export default function Music() {
     window.WeixinJSBridge?.invoke("getNetworkType", {}, handleButton, false);
   }, []);
 
-  return <animated.div className={clsx(styles.button, styles.open)} style={{ opacity }} onClick={handleButton} />;
+  return <animated.div className={clsx(styles.button, styles.close)} style={{ opacity }} onClick={handleButton} />;
 }

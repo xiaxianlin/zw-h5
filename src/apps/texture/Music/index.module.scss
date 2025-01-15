@@ -7,7 +7,12 @@
   z-index: 999;
 
   &.open {
-    background: url("./assets/sound.png?inline") no-repeat;
+    background: url("./assets/open.png?inline") no-repeat;
+    background-size: cover;
+  }
+
+  &.close {
+    background: url("./assets/close.png?inline") no-repeat;
     background-size: cover;
   }
 }
