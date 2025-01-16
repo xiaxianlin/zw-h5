@@ -4,9 +4,6 @@ import { pluginSass } from "@rsbuild/plugin-sass";
 import { pluginRem } from "@rsbuild/plugin-rem";
 import { pluginSvgr } from "@rsbuild/plugin-svgr";
 
-// @ts-ignore
-const isDev = process.env.NODE_ENV === "development";
-
 export default defineConfig({
   plugins: [
     pluginReact(),
@@ -35,7 +32,7 @@ export default defineConfig({
   },
   source: {
     define: {
-      _RESOURCE_URL_: JSON.stringify(isDev ? "/textures" : "https://zw.ixxl.me/textures"),
+      _RESOURCE_URL_: JSON.stringify(process.env.RESOURCE_URL || "/textures"),
     },
   },
 });
