@@ -32,7 +32,10 @@ export default defineConfig({
   },
   source: {
     define: {
-      _RESOURCE_URL_: JSON.stringify(process.env.RESOURCE_URL || "/textures"),
+      _RESOURCE_URL_: JSON.stringify(process.env.RESOURCE_URL || "./textures"),
     },
+  },
+  output: {
+    assetPrefix: "./",
   },
 });
