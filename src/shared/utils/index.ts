@@ -19,14 +19,23 @@ export const setShareInfo = async () => {
   if (wx && !res?.data?.data) return;
   wx.config({ ...res.data.data });
   wx.ready(() => {
-    console.log(">>>>> wx.ready", res);
+    console.log("[LOG] >>>>>>>>>>  wx.ready", res);
     wx.updateAppMessageShareData({
       title: "宋韵祥纹",
       desc: "快来一起定制你的专属祥纹吧",
       link: shareUrl,
       imgUrl: sharePic,
       success: function () {
-        console.log("updateAppMessageShareData success");
+        console.log("[LOG] >>>>>>>>>>  updateAppMessageShareData success");
+      },
+    });
+    wx.updateTimelineShareData({
+      title: "宋韵祥纹",
+      desc: "快来一起定制你的专属祥纹吧",
+      link: shareUrl,
+      imgUrl: sharePic,
+      success: function () {
+        console.log("[LOG] >>>>>>>>>> updateTimelineShareData success");
       },
     });
   });
