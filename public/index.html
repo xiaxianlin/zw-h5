@@ -10,6 +10,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="expires" content="0" />
     <title>宋韵</title>
+    <script src="https://res2.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
     <style>
       #bgMusic {
         position: fixed;
@@ -22,15 +23,4 @@
     <div id="root"></div>
     <audio id="bgMusic" loop playsInline autoplay preload="auto" src="<%= _RESOURCE_URL_ %>/bg.mp3" />
   </body>
-  <script src="https://h5.cztv.com/pinghu/h5/share/js/jquery-2.1.0.js"></script>
-  <script src="https://res2.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
-  <script src="https://ih5.cztv.com/batrix-h5/h5/unify/js/share.js"></script>
-  <script>
-    fenxiang(
-      "宋韵祥纹", //标题
-      "快来生成你的专属祥纹吧", //描述
-      "./textures/modal/x01.png", //图片
-      window.location.href
-    );
-  </script>
 </html>
