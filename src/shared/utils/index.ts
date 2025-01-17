@@ -20,40 +20,40 @@ export const setShareInfo = async () => {
   wx.config({ ...res.data.data });
   wx.ready(() => {
     console.log("[LOG] >>>>>>>>>>  wx.ready", res);
-    wx.onMenuShareAppMessage({
-      title: "宋韵祥纹", // 分享标题
-      desc: "快来一起定制你的专属祥纹吧", // 分享描述
-      link: shareUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-      imgUrl: sharePic, // 分享图标
-      success: function () {
-        console.log("[LOG] >>>>>>>>>>  onMenuShareAppMessage success");
-      },
-    });
-    wx.onMenuShareTimeline({
+    // wx.onMenuShareAppMessage({
+    //   title: "宋韵祥纹", // 分享标题
+    //   desc: "快来一起定制你的专属祥纹吧", // 分享描述
+    //   link: shareUrl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+    //   imgUrl: sharePic, // 分享图标
+    //   success: function () {
+    //     console.log("[LOG] >>>>>>>>>>  onMenuShareAppMessage success");
+    //   },
+    // });
+    // wx.onMenuShareTimeline({
+    //   title: "宋韵祥纹",
+    //   link: shareUrl,
+    //   imageUrl: sharePic,
+    //   success: function () {
+    //     console.log("[LOG] >>>>>>>>>>  onMenuShareTimeline success");
+    //   },
+    // });
+    wx.updateAppMessageShareData({
       title: "宋韵祥纹",
+      desc: "快来一起定制你的专属祥纹吧",
       link: shareUrl,
-      imageUrl: sharePic,
+      imgUrl: sharePic,
       success: function () {
-        console.log("[LOG] >>>>>>>>>>  onMenuShareTimeline success");
+        console.log("[LOG] >>>>>>>>>>  updateAppMessageShareData success");
       },
     });
-    // wx.updateAppMessageShareData({
-    //   title: "宋韵祥纹",
-    //   desc: "快来一起定制你的专属祥纹吧",
-    //   link: shareUrl,
-    //   imgUrl: sharePic,
-    //   success: function () {
-    //     console.log("[LOG] >>>>>>>>>>  updateAppMessageShareData success");
-    //   },
-    // });
-    // wx.updateTimelineShareData({
-    //   title: "宋韵祥纹",
-    //   desc: "快来一起定制你的专属祥纹吧",
-    //   link: shareUrl,
-    //   imgUrl: sharePic,
-    //   success: function () {
-    //     console.log("[LOG] >>>>>>>>>> updateTimelineShareData success");
-    //   },
-    // });
+    wx.updateTimelineShareData({
+      title: "宋韵祥纹",
+      desc: "快来一起定制你的专属祥纹吧",
+      link: shareUrl,
+      imgUrl: sharePic,
+      success: function () {
+        console.log("[LOG] >>>>>>>>>> updateTimelineShareData success");
+      },
+    });
   });
 };
