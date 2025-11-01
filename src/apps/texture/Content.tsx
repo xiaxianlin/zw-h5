@@ -9,18 +9,14 @@ import { Block06 } from "./Block06";
 import { Block07 } from "./Block07";
 import { useAppModel } from "./model";
 export default function Content() {
-  const { loaded, ratio } = useAppModel();
+  const { loaded } = useAppModel();
   const domRef = useRef<HTMLDivElement>(null);
   if (!loaded) {
     return null;
   }
   return (
     <div ref={domRef} className="container">
-      <Block00
-        onStart={() => {
-          domRef.current && (domRef.current.scrollTop = 1355 * ratio);
-        }}
-      />
+      <Block00 />
       <Block01 />
       <Block02 />
       <Block03 />
