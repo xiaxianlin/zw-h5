@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "rsbuild dev",
     "build": "rsbuild build",
+    "clean": "rm -rf dist",
     "preview": "rsbuild preview"
   },
   "dependencies": {
@@ -19,7 +20,7 @@
     "unstated-next": "^1.1.0"
   },
   "devDependencies": {
-    "@rsbuild/core": "^1.1.8",
+    "@rsbuild/core": "^1.6.0",
     "@rsbuild/plugin-react": "^1.0.7",
     "@rsbuild/plugin-rem": "^1.0.2",
     "@rsbuild/plugin-sass": "^1.1.2",

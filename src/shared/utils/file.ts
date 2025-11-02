@@ -1,4 +1,5 @@
 export const loadImage = (url: string) => {
+  console.log(url)
   return new Promise((resolve, reject) => {
     const img = new Image();
     img.onload = () => {
